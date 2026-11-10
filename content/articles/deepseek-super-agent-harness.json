@@ -1,0 +1,41 @@
+{
+  "id": "deepseek-super-agent-harness",
+  "date": "2026-11-05",
+  "published_at": "2026-11-05T12:00:00+00:00",
+  "ingested_at": "2026-11-06T00:42:37+08:00",
+  "source": {
+    "type": "youtube",
+    "url": "https://www.youtube.com/watch?v=OrcsMi2-IcM",
+    "author": "AI news / DeepSeek Super Agent explainer",
+    "handle": "youtube",
+    "title_en": "DeepSeek Super Agent and why the harness matters"
+  },
+  "title": "DeepSeek Super Agent：用插件组织 router 与 worker 的研究原型",
+  "dek": "同一模型在九套 harness 中的通过率和成本不同；Super Agent 目前聚焦 GitHub、飞书，安全问题尚未完全解决。",
+  "tags": [
+    "DeepSeek",
+    "harness",
+    "agent"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "DeepSeek Super Agent and why the harness matters",
+    "text_md": "DeepSeek Super Agent and why the harness matters\n\nSource: YouTube https://www.youtube.com/watch?v=OrcsMi2-IcM\n\nOkay, so this past weekend, DeepSeek released something that a lot of people out there are calling the answer to Claude Code. It's an agent that sits on a GitHub repo. It watches the issues and pull requests, and when someone on your team asks it to do something, It then goes off into its own session, does the work, and comes back with a PR Now, while that's cool in itself, that's not really the part that I want to talk about here. The part that I find really interesting is how they built it. The whole thing is just a set of plugins dropped into their agent harness.\n\nWhen the DeepSeek Harness came out back in August, the plugin architecture is really cool. The new thing DeepSeek launched is called Super Agent. Along with the repo, they've written an article on X called Exploring Super Agent Design: Towards a More Autonomous Agent System. They're upfront that this is a research prototype, not an official DeepSeek product. Ideas and engineering were often written by coding agents themselves.\n\nBasic idea: instead of you opening a session and talking to an agent, the agent listens to where your team already works — GitHub, and Feishu. When someone allowed asks it for something, it opens a work item, spins up its own session, does the work, replies back usually with a PR.\n\nOn the VentureBeat podcast Beyond the Pilot, CTOs of Instacart and Box both said the harness matters more than the model right now.\n\nFrontier Harness Eval: same model (Kimi K3) through nine coding agent harnesses. Codex 66.7% pass rate; DeepSeek Harness creator config and Claude Code both 63.3%. DeepSeek ~$3.28 per successful task vs Claude Code ~$18.34. Gap cheapest to most expensive ~17.5x. Harness changes cost, caching, speed, and success rate even with model held constant.\n\nDeepSeek Harness (DSH) MIT licensed, web UI, not locked to DeepSeek models. Tagline: everything is a plugin — router, tool registry, session log, even the agent loop. Built on Cordis (spatiotemporal composability): temporal (unload reverses everything) and spatial (dependencies activate/deactivate).\n\nModes: standard, PTC, minimal, creator — different plugin sets. Creator: describe a plugin in chat and agent writes/installs it.\n\nSuper Agent integrates via cordis.patch: core Super Agent plugin, GitHub watcher, Feishu watcher. Workers: stripped preset, no questions/plan/web fetch/sub-agents; long shell jobs backgrounded. Architecture: long-running router session + isolated worker sessions. Triggers go through a deterministic gate (allow-list) before the model. Tickets carry a mandate. Workers subscribe to conversation so PR comments skip the router (30% fewer router decisions when on).\n\nUnder load (1→40 triggers/min), batching made time per decision drop 6.4s→1.6s. Router can use a cheap/fast model; stronger models for workers.\n\nPhilosophy: take as little human attention as possible and give as much value as possible.\n\nCaveats: prototype; published code ≠ internal; narrow (GitHub/Feishu); synthetic benchmarks; security (prompt injection, credentials) not fully solved.\n\nBigger point: harnesses evolving fast via composable plugins without forking the core.",
+    "media": [
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=OrcsMi2-IcM",
+        "poster": "https://i.ytimg.com/vi/OrcsMi2-IcM/sddefault.jpg"
+      }
+    ]
+  },
+  "body_md": "以下依据本站保存的视频文字摘录整理，并非完整逐字稿。视频介绍了 DeepSeek 发布的 Super Agent。一些人将它称为对 Claude Code 的回应；视频作者更关注它的构建方式：整个系统由加入 DeepSeek Harness 的一组插件组成。\n\nSuper Agent 会监听团队已经使用的 GitHub 和飞书。当获得许可的成员在 Issue、PR 或相关对话中提出需求时，它建立工作项，开启独立会话完成任务，再返回结果，通常是一个 PR。它不要求用户先打开一段新的 Agent 对话。\n\n项目随代码发布了一篇 X 文章，题为 Exploring Super Agent Design: Towards a More Autonomous Agent System。项目方明确说明，它是研究原型，并非 DeepSeek 的官方产品；不少设计想法和工程实现也由编码 Agent 编写。\n\n### 同一个模型，换九套 harness\n\n视频引用了 Frontier Harness Eval：固定使用 Kimi K3，比较九套编码 Agent harness。Codex 的通过率为 66.7%；DeepSeek Harness 的 creator 配置与 Claude Code 都为 63.3%。每完成一个成功任务，DeepSeek 约花费 $3.28，Claude Code 约为 $18.34。该测试中，最便宜与最贵的 harness 成本相差约 17.5 倍。\n\n这些结果涉及通过率、成本、缓存和速度，即使模型不变，harness 也会影响这些表现。这些结果来自合成基准测试。\n\n视频还提到，在 VentureBeat 的 Beyond the Pilot 播客中，Instacart 和 Box 的 CTO 都表达过当前 harness 比模型更重要的看法。\n\n### DSH 的插件结构\n\nDeepSeek Harness（DSH）在八月发布，采用 MIT 许可，提供 Web UI，并不限定使用 DeepSeek 模型。它的设计原则是所有东西都可以成为插件：router、工具注册、会话日志，甚至 Agent loop 本身。\n\n底层使用 Cordis 的时空可组合能力。时间维度上，卸载组件会撤销它做过的更改；空间维度上，组件依赖关系决定它们何时启用或停用。\n\nDSH 有 standard、PTC、minimal、creator 等模式，对应不同的插件组合。creator 模式允许用户在聊天中描述一个插件，由 Agent 编写并安装。\n\n### router 与 worker 如何配合\n\nSuper Agent 通过 `cordis.patch` 接入，包含核心 Super Agent 插件、GitHub watcher 和飞书 watcher。上层是一段长期运行的 router 会话，下层是彼此隔离的 worker 会话。外部触发先经过白名单等确定性门禁，再交给模型处理；工作单会携带任务授权。\n\nworker 使用精简的插件配置，不包含提问、规划、网页抓取或子 Agent，长时间运行的 shell 任务则转入后台。worker 还会直接订阅认领任务的对话，因此后续 PR 评论不必再经过 router。按材料中的测试，启用这一机制时，router 的决策次数比未启用时减少约 30%。\n\n负载测试把触发量从每分钟 1 次提高到 40 次。通过批量处理，每次决策所需时间从 6.4 秒降至 1.6 秒。视频据此介绍了一种分工：router 可以使用更便宜、更快的模型，把更强的模型留给 worker。\n\n这套设计希望尽量少占用人的注意力，同时提供尽可能多的价值。插件化也让开发者可以在不 fork 核心代码的情况下继续扩展 harness。\n\n它仍有明确限制：只是研究原型，公开代码不等于内部使用的代码；接入范围主要是 GitHub 和飞书，评测是合成基准，提示注入、凭证等安全问题尚未完全解决。\n",
+  "rewrite_media": [
+    {
+      "media_id": "m_a7870fb84bc71ab0",
+      "placement": "after_body",
+      "placement_note": "原文附带媒体；未核验其与具体段落的对应关系。",
+      "evidence": "source_metadata_only"
+    }
+  ]
+}

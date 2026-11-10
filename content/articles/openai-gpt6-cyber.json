@@ -1,0 +1,42 @@
+{
+  "id": "openai-gpt6-cyber",
+  "date": "2026-11-06",
+  "published_at": "2026-11-05T17:09:13+00:00",
+  "ingested_at": "2026-11-06T08:14:23+08:00",
+  "source": {
+    "type": "x_post",
+    "url": "https://x.com/OpenAI/status/2118390190246879554",
+    "author": "OpenAI",
+    "handle": "OpenAI",
+    "title_en": "Introducing GPT-6 Cyber",
+    "related_url": "https://openai.com/index/introducing-gpt-6-cyber/"
+  },
+  "title": "OpenAI 发布 GPT-6 Cyber，先向部分 Daybreak Red 客户开放",
+  "dek": "OpenAI 称，Mozilla、Palo Alto Networks、Calif 和 Cisco 等公司的安全团队已在使用该模型。",
+  "tags": [
+    "OpenAI",
+    "security",
+    "GPT-6"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Introducing GPT-6 Cyber",
+    "text_md": "Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignment.\n\nThe model powered the Linux kernel research we announced yesterday, and security teams at companies like Mozilla, Palo Alto Networks, Calif, and Cisco—alongside our own at OpenAI—are already putting it to work.\n\nGPT-6 Cyber is available to select Daybreak Red customers and we are expanding access over time.\n\nhttps://openai.com/index/introducing-gpt-6-cyber/",
+    "media": [
+      {
+        "type": "x_video",
+        "url": "https://video.twimg.com/amplify_video/2118387217588465664/vid/avc1/1920x1080/ggeDE9iY9Trxb8kO.mp4",
+        "poster": "https://pbs.twimg.com/amplify_video_thumb/2118387217588465664/img/N2grMUmP0O_EMvS2.jpg"
+      }
+    ]
+  },
+  "body_md": "OpenAI 发布 GPT-6 Cyber，称其在增强安全研究能力的同时，也改进了模型对齐。\n\n按 OpenAI 的介绍，该模型用于其前一天公布的 Linux 内核研究。Mozilla、Palo Alto Networks、Calif、Cisco 等公司的安全团队，以及 OpenAI 自己的安全团队，已经在使用它。\n\n目前，GPT-6 Cyber 向部分 Daybreak Red 客户开放，访问范围将逐步扩大。完整公告见 [OpenAI 原文](https://openai.com/index/introducing-gpt-6-cyber/)。\n",
+  "rewrite_media": [
+    {
+      "media_id": "m_70d1b131abc89dc7",
+      "placement": "after_body",
+      "placement_note": "原文附带媒体；未核验其与具体段落的对应关系。",
+      "evidence": "source_metadata_only"
+    }
+  ]
+}

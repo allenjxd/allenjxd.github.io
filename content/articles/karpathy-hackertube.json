@@ -1,0 +1,40 @@
+{
+  "id": "karpathy-hackertube",
+  "date": "2026-11-01",
+  "published_at": "2026-11-01T18:14:46+00:00",
+  "ingested_at": "2026-11-06T00:42:37+08:00",
+  "source": {
+    "type": "x_post",
+    "url": "https://x.com/karpathy/status/2116957135661945283",
+    "author": "Andrej Karpathy",
+    "handle": "karpathy",
+    "title_en": "Weekend hack: HackerTube"
+  },
+  "title": "Karpathy 做了 HackerTube：从 4300 万条 HN 评论中找到 6454 个视频",
+  "dek": "他用 Opus 5.5 花了约两小时完成这个周末项目；推荐无需登录，底层数据也可下载。",
+  "tags": [
+    "AI coding",
+    "product",
+    "HN"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Weekend hack: HackerTube",
+    "text_md": "Weekend hack: HackerTube. I was annoyed with YouTube's recommendations so I had Claude filter down 43M comments over 20 years of HN to 6,454 videos that keep being recommended. *Significantly* better viewing experience, ~2 hours with Opus 5.5:\nhttps://t.co/JIhXN7OSh1\n\n- Excellent recs without any logins (state is kept in local browser session)\n- Thumbnail is a representative frame from middle of the video instead of the super duper A/B test hyper-optimized user uploads\n- Underlying data from the comment analysis as one zip file, point your Claude at it and ask for your own version\n- HackerTube Longs ✊\n\nA bit more on the process:\nI use Claude Code (desktop app for Mac), Opus 5.5 on Medium effort as my default. I only talk to Claude and have it do everything, the only \"manual work\" I helped with in tandem was in the browser (reminiscent of MenuGen): 1) I had to create some kind of API key from Google Cloud UI to query YouTube for video metadata, 2) I booted up a VPS box for serving and 3) I bought the domain name. Once the box was up I gave Claude the IP and told it update, secure, harden, deploy and optimize the code, and it did the whole thing.\n\nMany awesome projects that would have normally taken weeks/months even can now be few-shotted for breakfast. What else are we not thinking of.",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://pbs.twimg.com/media/HWDnuuCaIAA__wa.jpg"
+      }
+    ]
+  },
+  "body_md": "Andrej Karpathy 不满 YouTube 的推荐，于是做了一个周末项目 HackerTube。他让 Claude 从 Hacker News 二十年来约 4300 万条评论中，筛出反复被推荐的 6454 个视频。按他的说法，整个项目用 Opus 5.5 花了约两小时，观看体验明显更好。\n\n他列出了几个设计选择：\n\n- 不登录也能获得推荐，使用状态保存在本地浏览器会话中。\n- 缩略图选取视频中段有代表性的一帧，而非上传者经过大量 A/B 测试优化的封面。\n- 评论分析的底层数据打包为一个 zip 文件，其他人可以把它交给 Claude，要求制作自己的版本。\n- 另有 HackerTube Longs。\n\n他也介绍了制作过程。默认工具是 Mac 版 Claude Code 桌面应用，模型为 Opus 5.5，使用 Medium effort。他只与 Claude 对话，让它完成工作；自己配合做的手动操作都在浏览器中：从 Google Cloud 界面创建查询 YouTube 视频元数据所需的 API key、启动用于提供服务的 VPS，以及购买域名。他提到，这种配合方式让他想起 MenuGen。\n\nVPS 启动后，他把 IP 交给 Claude，让它更新系统、处理安全加固、部署并优化代码。他说，Claude 完成了这些工作。\n\nKarpathy 感慨，一些过去需要数周甚至数月的项目，如今吃顿早饭的工夫，用少量提示就能做出来。他想知道，还有哪些项目是大家尚未想到的。原帖中的项目链接是 [HackerTube](https://t.co/JIhXN7OSh1)。\n",
+  "rewrite_media": [
+    {
+      "media_id": "m_1056aca2aea7617b",
+      "placement": "after_body",
+      "placement_note": "原文附带媒体；未核验其与具体段落的对应关系。",
+      "evidence": "source_metadata_only"
+    }
+  ]
+}

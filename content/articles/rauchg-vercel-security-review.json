@@ -1,0 +1,29 @@
+{
+  "id": "rauchg-vercel-security-review",
+  "date": "2026-11-03",
+  "published_at": "2026-11-03T21:45:04+00:00",
+  "ingested_at": "2026-11-06T00:42:37+08:00",
+  "source": {
+    "type": "x_post",
+    "url": "https://x.com/rauchg/status/2117734833824948373",
+    "author": "Guillermo Rauch",
+    "handle": "rauchg",
+    "title_en": "Vercel internal security agent @hacker now available",
+    "related_url": "https://vercel.com/blog/vercel-security-review"
+  },
+  "title": "Rauch：Vercel 内部的安全审计 Agent 已对外开放",
+  "dek": "Rauch 称，仓库无论是否托管在 Vercel，都可以启用与内部安全 Agent 相同的能力。",
+  "tags": [
+    "security",
+    "agent",
+    "Vercel"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Vercel internal security agent @hacker now available",
+    "text_md": "I've been looking forward to this day, because Vercel has an internal security agent that is **astonishingly effective** (lovingly called @𝚑𝚊𝚌𝚔𝚎𝚛). Every single line of code gets audited, automatically.\n\nYou can now get the same power. Just enable it on all your repos (this product works whether you host on Vercel or not) and your peace of mind will increase tremendously. You'll see it catch things that every other agent misses.\n\nWhy: you cannot just bank on your engineers having a skill installed, prompting \"please make secure\", or rolling the weights' dice that the code is good out of the gate.\n\nThe other cool thing about this is that this was entirely developed by our security team. A lot of companies out there are probably in a mad rush right now trying to staff up. If you wanted to 'download a security team' as software, this is the closest you get today.",
+    "media": []
+  },
+  "body_md": "Guillermo Rauch 说，他一直期待 Vercel 的这次发布。公司内部有一个昵称为 `@𝚑𝚊𝚌𝚔𝚎𝚛` 的安全 Agent，每一行代码都会自动接受审计；他认为这个工具的效果非常出色。\n\n现在，外部用户也能在自己的所有仓库中启用相同能力，无论项目是否托管在 Vercel。Rauch 表示，它能发现其他 Agent 遗漏的问题，让使用者更安心。\n\n他给出的理由很具体：不能只指望工程师已经安装某个安全技能，也不能只在提示词里写一句请把代码写安全，更不能寄希望于模型第一次生成的代码就足够可靠。\n\n这套产品完全由 Vercel 的安全团队开发。Rauch 推测，不少公司正在急着扩充安全人员；在他看来，如果希望把安全团队变成可以直接获得的软件，这已经是目前很接近的一种形式。\n",
+  "rewrite_media": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "sarah-guo-personal-software",
+  "date": "2026-11-04",
+  "published_at": "2026-11-04T18:48:27+00:00",
+  "ingested_at": "2026-11-06T00:42:37+08:00",
+  "source": {
+    "type": "x_post",
+    "url": "https://x.com/saranormous/status/2118052772637704376",
+    "author": "Sarah Guo",
+    "handle": "saranormous",
+    "title_en": "Non-engineers do want to make personal software"
+  },
+  "title": "Sarah Guo 改变了看法：非工程师也想做自己的软件",
+  "dek": "她列了几种动机：动手做软件带来的力量感、没人替自己实现的工作流，以及想花几周修好的恼人问题。",
+  "tags": [
+    "product",
+    "personal software",
+    "AI"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Non-engineers do want to make personal software",
+    "text_md": "a few years ago, I started out skeptical that many non-engineers really wanted to make/mod their own personal software -- but I've come around, think I was wrong. range of desires from:\n- I feel so powerful\n- no one will make me the workflow/personalization I need\n- can I just PM the product for a few weeks and fix this thing that is driving me crazy\n\nobvious in retrospect, but if the ease:power ratio is good enough, of course people will make their own software",
+    "media": []
+  },
+  "body_md": "几年前，Sarah Guo 怀疑是否真有很多非工程师想自己制作或修改个人软件。现在，她改变了看法，觉得自己当时想错了。\n\n她列了几种人们想做个人软件的理由：\n\n- 自己也能做软件，感觉很有力量。\n- 没人会替自己做出需要的工作流或个性化设置。\n- 想当几周产品经理，修好那个一直让自己烦躁的地方。\n\n她回头看觉得，这其实不难理解：只要工具容易上手、能力又够强，人们当然会愿意做自己的软件。\n",
+  "rewrite_media": []
+}

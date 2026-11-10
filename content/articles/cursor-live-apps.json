@@ -1,0 +1,42 @@
+{
+  "id": "cursor-live-apps",
+  "date": "2026-11-06",
+  "published_at": "2026-11-05T21:41:10+00:00",
+  "ingested_at": "2026-11-06T08:14:23+08:00",
+  "source": {
+    "type": "x_post",
+    "url": "https://x.com/cursor_ai/status/2118458629091426304",
+    "author": "Cursor",
+    "handle": "cursor_ai",
+    "title_en": "You can now build live apps in Cursor and share them with a link",
+    "related_url": "https://cursor.com/docs/cloud-agent/apps"
+  },
+  "title": "Cursor：用 Agent 构建线上 App，并通过链接分享",
+  "dek": "描述需要的工具后，Cursor 会构建应用、设置数据库、运行安全检查并部署。",
+  "tags": [
+    "Cursor",
+    "Cloud Agent",
+    "Apps"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "You can now build live apps in Cursor and share them with a link",
+    "text_md": "You can now build live apps in Cursor and share them with a link.\n\nAgents have made it easier to write code, but most apps never make it off localhost. Describe the tool you want - Cursor will build it, set up a database, run deterministic and agentic security checks, and deploy.",
+    "media": [
+      {
+        "type": "x_video",
+        "url": "https://video.twimg.com/amplify_video/2118458611320131584/vid/avc1/1280x720/96e72bPmXLUWS7C5.mp4?tag=16",
+        "poster": "https://pbs.twimg.com/amplify_video_thumb/2118458611320131584/img/uUJSIBl8QaDBnoAA.jpg"
+      }
+    ]
+  },
+  "body_md": "Cursor 宣布，现在可以在 Cursor 中构建可运行的线上 App，并通过链接分享。\n\n它在介绍中指出，Agent 已经让写代码更容易，但大多数应用仍停留在 localhost。用户描述自己需要的工具后，Cursor 会构建应用、设置数据库、运行确定性的安全检查和 Agent 安全检查，再完成部署。\n",
+  "rewrite_media": [
+    {
+      "media_id": "m_b4c32a4814c74f4b",
+      "placement": "after_body",
+      "placement_note": "原文附带媒体；未核验其与具体段落的对应关系。",
+      "evidence": "source_metadata_only"
+    }
+  ]
+}
