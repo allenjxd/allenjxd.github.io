@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>BMad Builder v1.5.0：会记住你、会成长、也能自己醒来的 Agent · X News</title><meta name="robots" content="noindex"></head><body><article class="article-reader" data-article-id="bmad-builder-v1-5-0">
+<a class="article-back" href="/">← 返回选刊</a>
+<header class="article-header"><p class="article-kicker">Brian Madison / 文章</p><h1>BMad Builder v1.5.0：会记住你、会成长、也能自己醒来的 Agent</h1><p class="article-dek">这次是 v1.0 以来最大的更新，构建器能做出无状态、有记忆和自主三类 Agent，并引入 sanctum 记忆和 PULSE。</p><div class="article-meta"><time datetime="2026-11-11">本站收录 2026年11月11日 · 周三</time><span>原文发布 2026年4月7日 · 周二</span><span>原作者：Brian Madison</span><span>中文改写：<a href="/about">X News · 乔木</a></span><span>BMad · BMad Builder · changelog</span></div></header>
+<nav class="reader-tabs" aria-label="文章版本与来源"><div data-tabs><a href="#rewrite" id="tab-rewrite" data-view="rewrite">乔木改写</a><a href="#original" id="tab-original" data-view="original">原文</a></div><a class="reader-source" href="https://blog.bmadcode.com/bmad-builder-v1-5-0-agents-that-remember-evolve-and-wake-on-their-own/" target="_blank" rel="noopener noreferrer">原文链接 ↗</a><div class="reading-position" hidden><progress max="100" value="0" aria-label="当前版本阅读进度"></progress><span data-reading-percent aria-hidden="true">0%</span></div></nav>
+<section class="reader-panel" id="rewrite" data-reader-panel="rewrite" aria-label="乔木改写"><h2 class="section-heading">乔木改写</h2><div class="prose"><p>BMad Builder 在 v1.0 之后最大的一次更新发布了。Agent 构建器现在能沿着一条光谱，做出三种不同的 Agent；最受关注的能力，是带有持久身份、会随着主人一起演化的 Agent。作者 Brian Madison 在 The BMad Code 的更新说明里介绍了这些变化。</p>
+<p>文首有一张更新配图，标注为 BMad Builder v1.5.0 这次发布。</p>
+<section class="rewrite-source-media" aria-label="原文媒体"><div class="original-media">
+<figure class="media-figure" data-media-id="media_bmb_changelog_cropped"><div class="media-frame"><img src="https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmb-changelog-cropped.jpeg" data-original-src="https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmb-changelog-cropped.jpeg" alt="BMad Builder v1.5.0 — Agents That Remember, Evolve, and Wake on Their Own" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p class="media-error" role="status" hidden>媒体未能载入，请通过下方原文链接查看。</p></div><figcaption><span>原帖图片</span><a href="https://blog.bmadcode.com/bmad-builder-v1-5-0-agents-that-remember-evolve-and-wake-on-their-own/" target="_blank" rel="noopener noreferrer">无法显示？去原文查看 ↗</a></figcaption></figure>
+</div></section>
+<h2>三种 Agent，在对话里被识别出来</h2>
+<p>构建器现在会产出三类 Agent，类型是在构建过程的自然对话里被识别的，不必先从菜单里点选。</p>
+<p><strong>无状态 Agent</strong> 处理孤立、目标明确的任务，没有记忆开销。文中举的例子是代码格式化、图表审查、会议摘要。</p>
+<p><strong>记忆 Agent</strong> 通过一套叫做 “sanctum” 的文件，在会话之间保持存在。这些文件保存 Agent 的身份、价值观、对主人的理解，以及经过整理的知识。每一次会话都是一次重生：Agent 读自己的 sanctum，成为它自己，再从上下文停下的地方继续。文中特别写了：没有伪造的连续性。</p>
+<p><strong>自主 Agent</strong> 再往上，加上后台运行。它们按计划醒来，整理记忆、修剪旧的会话日志，并运行特定领域的任务，例如想法孵化、项目监视、研究追踪，然后退出，等到下一次。</p>
+<h2>First Breath：第一次运行时的入职仪式</h2>
+<p>记忆 Agent 第一次运行时，会有一场入职仪式，并有两种初始化风格。<strong>calibration</strong> 面向创意伙伴，做深入的对话式发现；<strong>configuration</strong> 面向领域专家，做高效的引导式设置。Agent 会在对话过程中把内容写入 sanctum 文件，以免中途被打断时丢掉上下文。</p>
+<h2>Sanctum：六份核心文件，和两层记忆</h2>
+<p>每次重生都会加载六份核心文件：INDEX、PERSONA、CREED、BOND、MEMORY 和 CAPABILITIES。记忆是两层结构：原始会话日志负责捕获，经过整理的 MEMORY.md 负责长期知识，并且限制在 200 行以内。文中再次强调，这里没有伪造的连续性，也没有臆造的历史。</p>
+<h2>PULSE：按计划自己醒来</h2>
+<p>自主 Agent 按计划醒来，整理记忆、修剪旧日志，并运行领域任务。它支持通过 <code>--headless {task-name}</code> 做具名任务路由，以便有针对性地跑后台工作。</p>
+<h2>可以继续学习的能力</h2>
+<p>Madison 写道，他最兴奋的功能是：记忆 Agent 可以在之后学会新技能。用户能教给它基于提示词、基于脚本，或多文件的新能力，这些能力会留在 sanctum 里。Agent 会和你一起增长。</p>
+<h2>一项破坏性变更</h2>
+<p><code>bmad-</code> 前缀现在只留给官方 BMad 生态中的技能。用户自建技能使用 <code>agent-{name}</code>（独立）或 <code>{code}-agent-{name}</code>（模块）。他把这看成生态成熟的信号：社区建造的 Agent 正在变成真事。</p>
+<h2>四个示例 Agent，和这一版的体量</h2>
+<p>示例 Agent 有四个，覆盖全部三种类型：Creative Muse（记忆）、Code Coach（自主）、Sentinel（自主），以及 Diagram Reviewer（无状态）。</p>
+<p>这一版有 22 个 commit，改动 172 个文件，新增 +8,296 行代码。文档也做了全面修订，其中包括对 sanctum 架构和记忆系统的深入说明。</p>
+<p>开始使用的命令是：</p>
+<pre><code>npx bmad-method install
+</code></pre>
+<p>文中写明，这些内容全部免费、开源，并且会一直如此。相关链接是 <a href="https://github.com/bmad-code-org/bmad-builder" rel="noopener noreferrer">GitHub</a>、<a href="https://bmad-builder-docs.bmad-method.org/" rel="noopener noreferrer">文档</a> 和 <a href="https://www.youtube.com/@BMadCode" rel="noopener noreferrer">YouTube</a>。</p>
+</div></section>
+<section class="reader-panel" id="original" data-reader-panel="original" aria-label="原文">
+<h2 class="section-heading">原文</h2><h3 class="original-title">BMad Builder v1.5.0 — Agents That Remember, Evolve, and Wake on Their Own</h3>
+<div class="original-media">
+<figure class="media-figure" data-media-id="media_bmb_changelog_cropped"><div class="media-frame"><img src="https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmb-changelog-cropped.jpeg" data-original-src="https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmb-changelog-cropped.jpeg" alt="BMad Builder v1.5.0 — Agents That Remember, Evolve, and Wake on Their Own" loading="lazy" decoding="async" referrerpolicy="no-referrer"><p class="media-error" role="status" hidden>媒体未能载入，请通过下方原文链接查看。</p></div><figcaption><span>原帖图片</span><a href="https://blog.bmadcode.com/bmad-builder-v1-5-0-agents-that-remember-evolve-and-wake-on-their-own/" target="_blank" rel="noopener noreferrer">无法显示？去原文查看 ↗</a></figcaption></figure>
+</div>
+<div class="prose" lang="en"><h1>BMad Builder v1.5.0 — Agents That Remember, Evolve, and Wake on Their Own</h1>
+<p><img alt="BMad Builder v1.5.0 — Agents That Remember, Evolve, and Wake on Their Own" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmb-changelog-cropped.jpeg"></p>
+<p>The biggest update to BMad Builder since v1.0 just shipped. The agent builder now creates three distinct agent types along a spectrum, and the headline feature is agents with persistent identity that evolve with their owners over time.</p>
+<h2>Three Agent Types</h2>
+<p>The builder now produces three agent types, detected through natural conversation during the build process:</p>
+<p><strong>Stateless agents</strong> handle isolated, focused tasks with zero memory overhead. Think code formatters, diagram reviewers, meeting summarizers.</p>
+<p><strong>Memory agents</strong> persist across sessions through a "sanctum" — a set of files holding the agent's identity, values, understanding of its owner, and curated knowledge. Every session is a rebirth: the agent reads its sanctum, becomes itself, and picks up where context left off. No fake continuity.</p>
+<p><strong>Autonomous agents</strong> add background operation. They wake on a schedule to curate their memory, prune old session logs, and run domain-specific tasks — idea incubation, project monitoring, research tracking — then exit until next time.</p>
+<h2>First Breath</h2>
+<p>Memory agents have a first-run onboarding ceremony with two initialization styles: <strong>calibration</strong> for deep conversational discovery with creative partners, and <strong>configuration</strong> for efficient guided setup with domain experts. The agent saves to its sanctum files during the conversation, not in batch — no lost context if something interrupts.</p>
+<h2>Sanctum Memory System</h2>
+<p>Six core files loaded on every rebirth: INDEX, PERSONA, CREED, BOND, MEMORY, and CAPABILITIES. A two-tier memory architecture separates raw session logs (for capture) from curated MEMORY.md (capped at 200 lines) for long-term knowledge. No fake continuity, no hallucinated history.</p>
+<h2>PULSE — Autonomous Wake</h2>
+<p>Autonomous agents wake on schedule to curate memory, prune old session logs, and run domain-specific tasks. Supports named task routing via <code>--headless {task-name}</code> for targeted background work.</p>
+<h2>Evolvable Capabilities</h2>
+<p>The feature I'm most excited about: memory agents can optionally learn new skills over time. Users teach the agent new prompt-based, script-based, or multi-file capabilities that persist in the sanctum. The agent grows with you.</p>
+<h2>Breaking Changes</h2>
+<p>The <code>bmad-</code> prefix is now reserved for official BMad ecosystem skills only. User-created skills use <code>agent-{name}</code> (standalone) or <code>{code}-agent-{name}</code> (module) — a sign of ecosystem maturity as community-built agents become a real thing.</p>
+<h2>Sample Agents</h2>
+<p>Four sample agents ship covering all three types: Creative Muse (memory), Code Coach (autonomous), Sentinel (autonomous), and Diagram Reviewer (stateless).</p>
+<h2>By the Numbers</h2>
+<p>22 commits, 172 files changed, +8,296 lines of new code. Full documentation overhaul includes a deep-dive on the sanctum architecture and memory system.</p>
+<h2>Get Started</h2>
+<pre><code>npx bmad-method install
+</code></pre>
+<p>Everything is free, open source, and always will be.</p>
+<ul>
+<li><a href="https://github.com/bmad-code-org/bmad-builder?ref=blog.bmadcode.com" rel="noopener noreferrer">GitHub</a></li>
+<li><a href="https://bmad-builder-docs.bmad-method.org/?ref=blog.bmadcode.com" rel="noopener noreferrer">Documentation</a></li>
+<li><a href="https://www.youtube.com/@BMadCode?ref=blog.bmadcode.com" rel="noopener noreferrer">YouTube</a></li>
+</ul></div>
+</section>
+<footer class="source-box"><span>内容来自原作者；中文为乔木风格改写，非逐字翻译。</span><div><a href="https://blog.bmadcode.com/bmad-builder-v1-5-0-agents-that-remember-evolve-and-wake-on-their-own/" target="_blank" rel="noopener noreferrer">打开原文 ↗</a></div></footer>
+</article></body></html>

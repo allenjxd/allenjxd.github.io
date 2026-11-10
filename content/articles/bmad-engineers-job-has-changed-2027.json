@@ -1,0 +1,139 @@
+{
+  "id": "bmad-engineers-job-has-changed-2027",
+  "date": "2026-11-07",
+  "published_at": "2026-11-07T18:10:46+00:00",
+  "ingested_at": "2026-11-11T02:28:10+08:00",
+  "source": {
+    "type": "web",
+    "url": "https://blog.bmadcode.com/blog/engineers-job-has-changed-2027/",
+    "author": "Brian Madison",
+    "handle": "bmadcode",
+    "title_en": "The Engineer's Job Has Changed: What to Learn in 2027",
+    "related_url": "https://www.youtube.com/watch?v=ruwj9hNDBcQ"
+  },
+  "title": "BMad：工程师的工作变了，2027 年还该学什么",
+  "dek": "Brian Madison 认为 AI 没有取代软件工程师，但岗位已经变了；他还给出一张从任务想到架构的梯子。",
+  "tags": [
+    "BMad",
+    "AI-native",
+    "career"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "The Engineer's Job Has Changed: What to Learn in 2027",
+    "text_md": "# The Engineer's Job Has Changed: What to Learn in 2027\n\n![A supertall tower rising over the Central Park trees, in black and white](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-header.jpg)\n\nI spent an afternoon in Central Park recently with my camera. It was a nice outing, mostly street photography as the light went down, and a rare stretch of quiet time to reflect on how much this work has changed and where it's heading. Somewhere in there I sat down on a bench and answered the questions I get asked the most. Is AI going to replace software engineers? Is learning to code still worth it? If I were starting my career right now, what would I focus on?\n\n![BMad photographing the Women's Rights Pioneers statue](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-bmad-photographing-the-statue.jpg)\n\n![Women's Rights Pioneers statue, Central Park](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-women-rights-pioneers.jpg)\n\n*Me shooting the Women's Rights Pioneers statue (a still from the video), and the shot I got. The other photos in this post are mine too.*\n\n## Is AI replacing software engineers?\n\nNo. AI has not replaced software engineers, and I don't see it doing so. A lot of the \"replacement\" talk comes from companies that sell AI products and want you to believe their product is that good. Engineers have a long career ahead of them. We need more good ones, not fewer.\n\nWhat is true is that the job has changed. It isn't the same job it was even two years ago. Most engineers I talk to now have the AI writing nearly all of their code. That isn't controversial anymore. The interesting question is what the engineer's job becomes once that's normal, and that's what the rest of this post is about.\n\nThere's also a practical reason we'll need engineers for a long time: somebody has to maintain these systems. And with the amount of vibe-coded software being shipped right now, somebody is going to have to clean it up.\n\n![Park Avenue at dusk](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-park-avenue-at-dusk.jpg)\n\n## Thirty years of shifts, and this one is different\n\nI've been in software engineering for almost 30 years, including building software for NASA, the FBI and the DoD. I came up through the dot-com boom. Around 2010 to 2012 I watched Agile move into companies and change how whole organizations worked together, and I really thought nothing would top that. Web frameworks kept coming and languages kept improving, but it all felt like one steady trajectory.\n\nAI broke that trajectory. The first wave of excitement wore off quickly, because for a while it didn't change much about the day-to-day job. Over the last year or two it has, and I don't think we're anywhere near the end state.\n\nThe part I didn't expect is what it has done for people. A lot of us who have been in this career for 20 or 30 years ended up in management, where the job became meetings and managing other people. AI brought the fun back. Senior leaders, product people and designers, not just the hands-on coders, can build and create again. I'm more optimistic about this field than I've been in a long time.\n\n## Vibe coding vs. coding with agents\n\nI don't love the term vibe coding, because it means different things to different people and it muddies every conversation about it. Coding with AI and coding with agents? I love it. Vibe coding as a hobby is fine too.\n\nBut for anything that matters, a little planning and some thought about what you're actually asking the AI to do is the better approach. That's the whole idea behind the [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD/?ref=blog.bmadcode.com): plan with the AI first, then build.\n\n![The Balto statue in Central Park](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-balto.jpg)\n\n## Is learning to code still worth it in 2027?\n\nYes. If you're going to college, I hope they're still teaching CS101 and design patterns. Even if the agent writes all of the code for you, you need a solid understanding of what it's doing. If you want this to be your profession, learning to code is 100% still worth it.\n\nIf you're picking it up as a hobby, there's nothing wrong with learning what the agent is doing for you either. And if you're building things with AI right now without knowing how to code, use that. Ask the AI to explain what it just did. Ask it to show you why. You'll pick up a lot along the way.\n\n### What \"ask the AI to explain\" looks like\n\nHere's a real example. I gave Claude Code a tiny shopping-cart function and asked it to add a 10% discount on orders over 100 and to block negative quantities. Then I asked one follow-up:\n\n```\nExplain what you just did and why, like I'm learning to code.\n```\n\nIt walked through the change step by step, and it didn't stop at what it did. It explained why. It named the concepts as it went: \"This is called **input validation**: checking that data makes sense before using it.\" It said why it raised an error instead of quietly fixing a negative quantity, since hiding it would make the real bug harder to find. And it pointed at the cases worth testing: \"Testing the **edge cases** (exactly 100, zero, negative) is a good habit: those boundaries are where bugs usually hide.\"\n\nThat's a lesson you'd normally get from a patient senior engineer, and it costs you one question. If you're building with AI and you don't know how to code yet, make that follow-up a habit. Read the diff, then ask why.\n\n![Filming on the Mall in Central Park](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-filming-on-the-mall.jpg)\n\n*Behind the scenes: filming the video on the Mall.*\n\n## If I were starting my career in 2027\n\nProbably exactly what I'm doing right now. The people I see doing best, and the people I want to hire, are thinking six months to a few years out. They've accepted that AI is the new way of working, and they're focused on becoming the best AI-native engineer they can be. Don't worry about the gatekeepers who say you still need to be in the code all day.\n\nThe other thing I'd focus on is systems thinking. It gets talked about a lot right now, and for good reason. As a junior engineer you're going to walk into legacy systems, get handed small tasks, and lean on your senior engineers, and the AI will help you with those tasks. The engineers who really excel start thinking about the big picture as early as they can. Find mentors. Learn how to think about architecture. Even when you're handed a small task, look at the system around it and ask why it works this way, whether it needs to, and how the whole thing could be better.\n\nThose big-picture decisions are where we still keep control. That's what matters now.\n\n### A ladder for thinking bigger\n\nHere's the way I'd practice it. Every ticket sits on a ladder, and the AI is very good at the bottom rung. The rungs above it are where engineers still keep control, and they're the ones to start climbing early.\n\n![A ladder from task to feature to system to architecture, with a question at each rung](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-ladder.jpg)\n\nThe questions are simple. Why did we do it this way? Do we need to do it this way? How could we improve the whole system? Ask them about every task you're handed, even when the answer is \"it's fine.\" Write down what you learn. Over time, that habit builds the judgment you need as you grow into senior roles.\n\n### Where BMad v7 fits\n\nThis is also the idea BMad v7 is built around. Everything starts from the intent: what should be true when the work is done, what must not change, and what's out of scope. Where it comes from doesn't matter. It can be a sentence, an issue or a full PRD. From there, the requirements get written at the altitude of the work, whether that's a whole initiative, an epic or a single story, and the planning document fits the altitude too: a charter or strategy for a program, a PRD or a pitch for an epic, a spec for a coding agent for one feature. Every size of work builds with the same unit; bigger work only adds context around it.\n\nIn other words, v7 makes you practice the ladder. You decide what you want and how big it is, and the agents do more of the building. v7 is in preview now, with more on it soon.\n\n## Where to start, depending on where you are\n\nIf you're a student or a new grad: learn the fundamentals for real, CS101 and design patterns included, and build things with an agent next to you. Read what it writes and ask it to explain. Then go looking for the big picture on purpose: find a mentor, and ask the ladder questions about every project you touch.\n\nIf you're a working engineer at a company that hasn't adopted AI tools yet: don't wait for them. Practice on your own projects. Learn to manage context, to plan before you build, and to treat the agent as a thinking partner instead of a question-and-answer bot. When it reaches your team, you'll already know how to work this way.\n\nIf you're senior or you lead a team: stay a little ahead of the hype, and spend part of that time teaching. Share what works, write it down, and help your team settle on a shared baseline, so you don't end up with eight engineers working eight different ways. Your judgment about the system matters more now.\n\n## One piece of advice for the next five years\n\nIf you're in a place that hasn't embraced AI tools yet, and you want to be relevant five years from now, start practicing now. Play with Claude, check out the BMad Method, try agentic tools. It may not have reached your company yet, but it's coming. As the saying goes, AI isn't going to replace you, but an engineer using AI very well might.\n\nIf you're already in a place that uses AI, the best thing you can do for your career is stay a little ahead of where everyone else is, learn how to use these tools well, and share what you learn. Be a lifelong learner, and be a teacher and mentor to the rest of your team. That's what I'd do, and I think it will keep you relevant well beyond the next five years.\n\n![A taxi on Park Avenue at dusk](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-taxi-on-park-avenue.jpg)\n\n---\n\n## Watch it in the park\n\nSome of this lands better on camera: my answer when someone asks if AI has replaced all the engineers, the timeline from the dot-com boom to AI drawn in as I talk, and a lot of Central Park at dusk.\n\nhttps://www.youtube.com/watch?v=ruwj9hNDBcQ\n\nSubscribe on [YouTube](https://www.youtube.com/@BMadCode?ref=blog.bmadcode.com) for more, and come find us on [Discord](https://discord.gg/gk8jAdXWmj?ref=blog.bmadcode.com).\n\nEverything on BMad Code is free, and the BMad Method is open source. If you'd like to support both, consider [upgrading your subscription](https://blog.bmadcode.com/#/portal/account/plans). It helps keep the free content and the open-source work going.\n",
+    "media": [
+      {
+        "id": "media_engineers_job_has_changed_2027_header",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-header.jpg",
+        "alt": "A supertall tower rising over the Central Park trees, in black and white"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_bmad_phot",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-bmad-photographing-the-statue.jpg",
+        "alt": "BMad photographing the Women's Rights Pioneers statue"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_women_rig",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-women-rights-pioneers.jpg",
+        "alt": "Women's Rights Pioneers statue, Central Park"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_park_aven",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-park-avenue-at-dusk.jpg",
+        "alt": "Park Avenue at dusk"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_balto",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-balto.jpg",
+        "alt": "The Balto statue in Central Park"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_filming_o",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-filming-on-the-mall.jpg",
+        "alt": "Filming on the Mall in Central Park"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_ladder",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-ladder.jpg",
+        "alt": "A ladder from task to feature to system to architecture, with a question at each rung"
+      },
+      {
+        "id": "media_engineers_job_has_changed_2027_taxi_on_p",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/11/engineers-job-has-changed-2027-taxi-on-park-avenue.jpg",
+        "alt": "A taxi on Park Avenue at dusk"
+      },
+      {
+        "id": "media_youtube",
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=ruwj9hNDBcQ",
+        "poster": "https://img.youtube.com/vi/ruwj9hNDBcQ/maxresdefault.jpg"
+      }
+    ]
+  },
+  "body_md": "Brian Madison 最近带着相机在中央公园待了一个下午。那次主要是暮色里的街拍，也是一段少有的安静时间，让他想清楚这份工作已经变了多少、接下来会往哪里走。他后来在一张长椅上，回答了自己最常被问到的几个问题：AI 会不会取代软件工程师？学习编程还值不值得？如果现在重新开始职业生涯，该把精力放在哪里？\n\n文章开头有一张中央公园树冠上方高楼的照片。文中还有他拍摄女性权利先驱雕像的画面，以及他拍到的那张雕像照片。他注明，后一张是视频里的定格，这篇里的其他照片也是他拍的。\n\n## AI 没有取代软件工程师，但工作已经不是两年前那样了\n\n他的回答是：没有。他不认为 AI 已经取代了软件工程师，也看不出它会这样做。很多“取代”的说法来自销售 AI 产品的公司，希望你相信他们的产品已经有那么好。在他看来，工程师还有很长的职业生涯，行业需要的是更多好工程师，不是更少。\n\n同时他说，工作确实变了，甚至和两年前也不一样。他接触到的大多数工程师，现在几乎都让 AI 写下全部代码。这一点已经不再有争议。真正有意思的问题是：当这变成常态，工程师的工作会变成什么。后文都在谈这件事。\n\n还有一个很实际的理由，让他觉得工程师仍会被需要很久：这些系统得有人维护。而且以眼下正在发出去的 vibe-coded 软件的量来看，以后也得有人来收拾。\n\n文中这里配了一张暮色中的 Park Avenue。\n\n## 他做了将近 30 年软件，这一次打断了原来的轨迹\n\nMadison 做软件工程将近 30 年，其中包括为 NASA、FBI 和美国国防部建造软件。他是在互联网热潮里成长起来的。大约 2010 到 2012 年，他看着 Agile 进入公司，改变整个组织的协作方式，当时真心觉得不会再有能超过它的变化。后来网页框架不断出现，语言也一直在改进，但整体仍像沿着一条稳定的轨迹往前走。\n\nAI 打断了这条轨迹。第一波兴奋很快过去，因为有一段时间，它并没有怎么改变日常工作。过去一两年，情况变了，而他不认为现在已经接近终点。\n\n他没预料到的，是这件事对人的影响。很多做了 20 年或 30 年的人进入了管理岗位，工作变成开会和管人。AI 把乐趣带了回来。不只是上手写代码的人，资深管理者、产品人员和设计师也能重新建造和创造。他写道，自己对这个行业的乐观，已经很久没有到这个程度。\n\n## 和 Agent 一起写代码，他喜欢；vibe coding 这个词，他不太喜欢\n\n他不太喜欢 vibe coding 这个说法，因为不同的人指的不是同一件事，讨论也容易被搅乱。用 AI 写代码、和 Agent 一起写代码，他是喜欢的。把 vibe coding 当爱好，他也觉得可以。\n\n可一旦事情重要，更好的办法是先做一点规划，并想清楚自己到底在要求 AI 做什么。这正是 [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD/) 的核心想法：先和 AI 一起规划，再建造。\n\n文中这里配了一张中央公园里的 Balto 雕像。\n\n## 2027 年，学习编程仍然值得\n\n如果要上大学，他希望学校仍在教 CS101 和设计模式。即便 Agent 会为你写下全部代码，你仍需要对它正在做的事有扎实理解。若想把这当成职业，学习编程仍然百分之百值得。\n\n如果只是当爱好来学，了解 Agent 正在为你做什么，同样没有坏处。若你现在还不会编程，却已经在用 AI 建造东西，也可以把这件事用起来：让 AI 解释它刚刚做了什么，再让它说明为什么。沿途会学到很多。\n\n他给了一个真实例子。他给 Claude Code 写了一个很小的购物车函数，要求给超过 100 的订单加 10% 折扣，并阻止负数量。随后只追问了一句：\n\n```\nExplain what you just did and why, like I'm learning to code.\n```\n\n它逐步讲解了这次改动，而且没有停在“做了什么”。它解释了为什么，并在过程中点出概念，例如：“This is called **input validation**: checking that data makes sense before using it.” 它说明自己为什么选择报错，没有悄悄修正负数量，因为把问题藏起来，会让真正的缺陷更难被发现。它还指出值得测试的情况：“Testing the **edge cases**（exactly 100, zero, negative）is a good habit: those boundaries are where bugs usually hide.”\n\n他认为，这就是通常需要一位有耐心的资深工程师才会给出的课，而你只需要追问一句。若正在用 AI 建造、自己还不会编程，就把这种追问养成习惯：先读 diff，再问为什么。\n\n文中有一张在中央公园 The Mall 拍摄视频的幕后照片。\n\n## 如果 2027 年重新开始，他会做自己现在正在做的事\n\n他看见表现最好、自己也想雇用的人，都在想未来 6 个月到几年的事。他们已经接受 AI 是新的工作方式，并专注于让自己成为尽量好的 AI-native 工程师。不必担心那些仍主张你必须整天待在代码里的把关人。\n\n他还会把精力放在系统思考上。这个话题现在被谈得很多，也有道理。作为初级工程师，你会走进遗留系统，接到小任务，依靠资深工程师，AI 也会帮你做这些任务。真正突出的工程师，会尽早开始想更大的图景。去找导师，学习怎么思考架构。即便手里只是一个小任务，也要看看它周围的系统，问它为什么这样运作、是否必须这样，以及整体怎样才能更好。\n\n这些大图景上的决定，仍是人要保住的控制权。他认为，这才是现在真正重要的事。\n\n## 一张从任务爬到架构的梯子\n\n他建议这样练习。每张工单都落在一架梯子上，AI 非常擅长最下面那一层。更上面的几层，仍是工程师保住控制权的地方，也应该尽早开始往上爬。\n\n图的标题是 THINKING BIGGER，FROM THE TICKET UP。自下而上四层是：01 Task，手里那张小工单，AI 在这里帮你；02 Feature，Why did we do it this way?；03 System，Do we need to do it this way?；04 Architecture，How could we improve this whole system?。图右侧标出从 WHERE YOU START 指向 WHERE YOU KEEP CONTROL。\n\n要问的问题很简单。我们为什么要这样做？必须这样吗？怎样改进整个系统？即便答案只是“这样可以”，也要对接到手的每项任务问一遍。把学到的写下来。时间久了，这个习惯会积累你进入资深角色所需的判断。\n\n这也是 BMad v7 围绕的想法。一切从意图开始：工作完成时什么应该为真，什么不能变，什么在范围之外。意图从哪里来并不重要，可以是一句话、一个 issue，或一份完整的 PRD。随后，需求按工作的海拔来写，不管那是一项完整倡议、一个 epic，还是单个故事；规划文档也匹配这个海拔：项目用章程或策略，epic 用 PRD 或 pitch，单个功能则给编码 Agent 一份规格。每种体量的工作都用同一个单位来建造，更大的工作只是在周围加上更多上下文。\n\n也就是说，v7 会让你练习这架梯子。你决定想要什么、它有多大，Agent 承担更多建造。他写明，v7 目前处于预览，后面还会再谈。\n\n## 按你现在的位置，可以从哪里开始\n\n如果你是学生或应届毕业生：把基础学扎实，包括 CS101 和设计模式，并在旁边带着一个 Agent 去建造东西。读它写出来的内容，让它解释。再有意识地去找大图景：找一位导师，并对接触到的每个项目问梯子上的那些问题。\n\n如果你是在职工程师，而公司还没有采用 AI 工具：不必等他们。在自己的项目上练习。学习如何管理上下文，如何先规划再建造，并把 Agent 当成思考伙伴，不要只把它当成一问一答的机器人。等这些工具进入团队时，你已经知道该怎么这样工作。\n\n如果你已经资深，或在带团队：比潮流稍稍走前一步，并把一部分时间用来教别人。分享有效的做法，写下来，帮助团队形成共同的基线，以免八位工程师用八种不同的方式工作。你对系统的判断，现在更重要。\n\n## 他对未来五年的一条建议\n\n如果你所在的地方还没有接受 AI 工具，又希望五年后仍然重要，现在就开始练习。去试试 Claude，看看 BMad Method，尝试 agentic 工具。它可能还没进到你的公司，但它会来。他引用了那句常说的话：AI 不会取代你，但一位非常会用 AI 的工程师可能会。\n\n如果你已经在使用 AI 的环境里，对职业最好的事，是比周围的人稍稍走前一步，把这些工具用好，并分享你学到的东西。做终身学习者，也做团队里的老师和导师。这是他自己会做的事，也认为这能让你在五年之后仍然重要。\n\n文中接近结尾处还有一张暮色中 Park Avenue 上的出租车照片。\n\n## 公园里还有一版视频\n\n有些内容在镜头前更合适：有人问 AI 是否已经取代了所有工程师时他怎么回答，他边讲边画出从互联网热潮到 AI 的时间线，以及大量暮色中的中央公园。这段说明来自原文对视频的介绍，本站没有完整观看视频，不能把它当成逐字稿或分镜头记录。\n\n视频地址是 https://www.youtube.com/watch?v=ruwj9hNDBcQ 。频道在 [YouTube @BMadCode](https://www.youtube.com/@BMadCode)，也欢迎去 [Discord](https://discord.gg/gk8jAdXWmj)。\n\nBMad Code 上的内容全部免费，BMad Method 是开源的。若愿意同时支持这两件事，原文建议考虑[升级订阅](https://blog.bmadcode.com/#/portal/account/plans)，以帮助免费内容和开源工作继续下去。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_engineers_job_has_changed_2027_header",
+      "placement": "after_paragraph",
+      "after_md": "文章开头有一张中央公园树冠上方高楼的照片。文中还有他拍摄女性权利先驱雕像的画面，以及他拍到的那张雕像照片。他注明，后一张是视频里的定格，这篇里的其他照片也是他拍的。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_bmad_phot",
+      "placement": "after_paragraph",
+      "after_md": "文章开头有一张中央公园树冠上方高楼的照片。文中还有他拍摄女性权利先驱雕像的画面，以及他拍到的那张雕像照片。他注明，后一张是视频里的定格，这篇里的其他照片也是他拍的。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_women_rig",
+      "placement": "after_paragraph",
+      "after_md": "文章开头有一张中央公园树冠上方高楼的照片。文中还有他拍摄女性权利先驱雕像的画面，以及他拍到的那张雕像照片。他注明，后一张是视频里的定格，这篇里的其他照片也是他拍的。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_park_aven",
+      "placement": "after_paragraph",
+      "after_md": "文中这里配了一张暮色中的 Park Avenue。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_balto",
+      "placement": "after_paragraph",
+      "after_md": "文中这里配了一张中央公园里的 Balto 雕像。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_filming_o",
+      "placement": "after_paragraph",
+      "after_md": "文中有一张在中央公园 The Mall 拍摄视频的幕后照片。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_ladder",
+      "placement": "after_paragraph",
+      "after_md": "图的标题是 THINKING BIGGER，FROM THE TICKET UP。自下而上四层是：01 Task，手里那张小工单，AI 在这里帮你；02 Feature，Why did we do it this way?；03 System，Do we need to do it this way?；04 Architecture，How could we improve this whole system?。图右侧标出从 WHERE YOU START 指向 WHERE YOU KEEP CONTROL。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_engineers_job_has_changed_2027_taxi_on_p",
+      "placement": "after_paragraph",
+      "after_md": "文中接近结尾处还有一张暮色中 Park Avenue 上的出租车照片。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_youtube",
+      "placement": "after_paragraph",
+      "after_md": "有些内容在镜头前更合适：有人问 AI 是否已经取代了所有工程师时他怎么回答，他边讲边画出从互联网热潮到 AI 的时间线，以及大量暮色中的中央公园。这段说明来自原文对视频的介绍，本站没有完整观看视频，不能把它当成逐字稿或分镜头记录。",
+      "evidence": "source_position_verified"
+    }
+  ]
+}

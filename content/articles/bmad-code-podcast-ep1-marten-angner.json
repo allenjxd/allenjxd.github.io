@@ -1,0 +1,42 @@
+{
+  "id": "bmad-code-podcast-ep1-marten-angner",
+  "date": "2026-05-04",
+  "published_at": "2026-05-04T13:37:56+00:00",
+  "ingested_at": "2026-11-11T02:28:05+08:00",
+  "source": {
+    "type": "web",
+    "url": "https://blog.bmadcode.com/podcast/trading-25-years-of-pixel-pushing-for-ai-strategy-the-token-slot-machine-youre-doing-ux-backwards-and-why-two-agents-beat-two-hundred-skills/",
+    "author": "Brian Madison",
+    "handle": "bmadcode",
+    "title_en": "Trading 25 Years of Pixel Pushing for AI Strategy: The Token Slot Machine, You're Doing UX Backwards, and Why Two Agents Beat Two Hundred Skills"
+  },
+  "title": "《The BMad Code》第 1 集：Marten Angner 把 25 年像素推敲换成 AI 策略",
+  "dek": "这是一期节目简介，不是逐字稿。Whiteport Design Studio 的 Marten Angner 说，他接触 BMad 的前 20 分钟就像一段恋爱故事。",
+  "tags": [
+    "BMad",
+    "podcast",
+    "UX"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Trading 25 Years of Pixel Pushing for AI Strategy: The Token Slot Machine, You're Doing UX Backwards, and Why Two Agents Beat Two Hundred Skills",
+    "text_md": "# Trading 25 Years of Pixel Pushing for AI Strategy: The Token Slot Machine, You're Doing UX Backwards, and Why Two Agents Beat Two Hundred Skills\n\n![Trading 25 Years of Pixel Pushing for AI Strategy: The Token Slot Machine, You're Doing UX Backwards, and Why Two Agents Beat Two Hundred Skills](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/06/cover.png)\n\n*The BMad Code · Episode 1 · with Marten Angner, Whiteport Design Studio*\n\nAfter 25 years of UX design, Marten Angner spent his first 20 minutes with the BMad method and called it a love story. Five months later he is rebuilding how Whiteport Design Studio works, and rethinking what a designer is even for.\n\nIn this conversation Marten walks through the moment AI clicked for him, why specs are the new code, and the mindset shift that separates designers who stay stuck from designers who get ten times faster.\n\nWhat we cover:\n\n- The 20-minute love story, and what made BMad different from every other AI tool he tried\n\n- \"Salad before dessert\": why most teams approach AI in exactly the wrong order\n\n- Boxing the AI in with documents so it stays on the rails instead of going Vegas slot machine\n\n- Sketch to spec to code as a working pipeline, not a slogan\n\n- The pixel pusher to strategist identity reframe, and what it costs to make\n\n- The trigger map: why we are building this, for whom, and what changes\n\n- Seven agents you can name versus two hundred slash commands you cannot remember\n\n- Iteration speed: from one cycle a year to ten in a day, and the warning that comes with it\n\n- Brilliance takes brain cycles: where AI gets you clear, and where it cannot make you smart\n\n- Saga and Freya: giving everyone in the company a strategy driver's license\n\n---\n\nbmadcode.com\n\n---\n\n**Listen:** [Apple Podcasts](https://podcasts.apple.com/us/podcast/the-bmad-code/id1896270274?ref=blog.bmadcode.com) · [Spotify](https://open.spotify.com/show/4M9RnNaLlwp3gIY8MfQLTN?ref=blog.bmadcode.com) · [stream it on bmadcode.com](https://blog.bmadcode.com/podcast/)\n",
+    "media": [
+      {
+        "id": "media_cover",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/06/cover.png",
+        "alt": "Trading 25 Years of Pixel Pushing for AI Strategy: The Token Slot Machine, You're Doing UX Backwards, and Why Two Agents Beat Two Hundred Skills"
+      }
+    ]
+  },
+  "body_md": "以下依据 The BMad Code 博客上的第 1 集节目简介整理，不是逐字稿，也没有核验音频内容。主持人一方是 BMad 这个栏目，嘉宾是 Whiteport Design Studio 的 Marten Angner。\n\n做了 25 年 UX 设计之后，Angner 与 BMad method 相处的前 20 分钟，被他称为一段恋爱故事。五个月后，他正在重建 Whiteport Design Studio 的工作方式，并重新思考设计师到底是干什么的。\n\n简介写道，这次对话里，Angner 会谈到 AI 对他“点亮”的那一刻、为什么规格成了新的代码，以及把仍停在原处的设计师，和变得快十倍的设计师分开的那种心态转变。\n\n文首有一张节目封面图。页面提供的收听入口是 [Apple Podcasts](https://podcasts.apple.com/us/podcast/the-bmad-code/id1896270274)、[Spotify](https://open.spotify.com/show/4M9RnNaLlwp3gIY8MfQLTN)，以及 [bmadcode.com 上的节目页](https://blog.bmadcode.com/podcast/)。\n\n## 简介里列出的讨论范围\n\n栏目罗列了将要讨论的内容，下面这些只是简介中的条目，不是对节目原话的转写。\n\n- 那 20 分钟的恋爱故事，以及 BMad 和他试过的其他 AI 工具有什么不同\n- “先吃沙拉再吃甜点”：多数团队接触 AI 的顺序正好反了\n- 用文档把 AI 框住，让它留在轨道上，避免变成拉斯维加斯的老虎机\n- 从草图到规格再到代码，是一条能运转的流水线，不只是一句口号\n- 从推敲像素到做策略的身份重塑，以及完成这种转变要付出什么\n- 触发图：为什么要建这个、为谁而建、会改变什么\n- 七个叫得出名字的 Agent，对上两百条记不住的斜杠命令\n- 迭代速度：从一年一轮，到一天十轮，以及随之而来的提醒\n- 出色的想法消耗脑力周期：AI 能让你把事情想清楚，但不能代替你变聪明\n- Saga 和 Freya：给公司里每个人一张策略驾照\n\n简介末尾还写了 bmadcode.com。若要了解 Angner 在节目里如何展开这些话题，需要直接收听原节目；本站没有逐字稿，也不能把上述条目写成他已经在录音里证实过的结论。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_cover",
+      "placement": "after_paragraph",
+      "after_md": "文首有一张节目封面图。页面提供的收听入口是 [Apple Podcasts](https://podcasts.apple.com/us/podcast/the-bmad-code/id1896270274)、[Spotify](https://open.spotify.com/show/4M9RnNaLlwp3gIY8MfQLTN)，以及 [bmadcode.com 上的节目页](https://blog.bmadcode.com/podcast/)。",
+      "evidence": "source_position_verified"
+    }
+  ]
+}

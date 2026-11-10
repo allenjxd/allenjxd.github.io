@@ -1,0 +1,41 @@
+{
+  "id": "bmad-what-does-going-ai-native-mean",
+  "date": "2026-04-01",
+  "published_at": "2026-04-01T07:04:22+00:00",
+  "ingested_at": "2026-11-11T02:28:01+08:00",
+  "source": {
+    "type": "web",
+    "url": "https://blog.bmadcode.com/blog/what-does-going-ai-native-mean/",
+    "author": "Brian Madison",
+    "handle": "bmadcode",
+    "title_en": "What Does Going AI-Native Actually Mean?"
+  },
+  "title": "BMad：所谓 AI-native，不只是装上 Copilot",
+  "dek": "Brian Madison 认为 AI 要成为开发生命周期里的正式参与者，难处在组织怎么协作，工具本身是否就绪还在其次。",
+  "tags": [
+    "BMad",
+    "AI-native"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "What Does Going AI-Native Actually Mean?",
+    "text_md": "# What Does Going AI-Native Actually Mean?\n\n![What Does Going AI-Native Actually Mean?](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/ai-native.jpg)\n\nEvery few years, something shifts the entire foundation of how software gets built. Containers changed deployment. Cloud changed infrastructure. DevOps changed who was responsible for what. Each shift did not just add a tool — it changed the *default assumptions* teams operate under.\n\nAI-native is the next one. And most teams are getting it wrong.\n\n## What AI-Native Is Not\n\nIt is not installing Copilot and calling it a day. It is not having a chatbot summarize your PRs. It is not even using Claude or GPT to generate boilerplate code — though all of those things can be useful.\n\nAI-native means AI is a **first-class participant** in your software development lifecycle. Not bolted on. Not optional. Integrated into how you plan, architect, build, test, and ship.\n\n## What Changes When You Go AI-Native\n\n**Planning gets smarter.** Instead of a human writing every story and acceptance criteria from scratch, AI agents help decompose epics, identify edge cases, and draft implementation plans that account for your actual codebase — not a generic template.\n\n**Architecture becomes conversational.** You describe what you want to build, and an AI architect asks the right questions, considers your constraints, and produces a technical design document. You review and refine. The AI does not replace your judgment — it accelerates it.\n\n**Implementation is guided, not generated.** The best AI-native workflows do not just spit out code. They follow structured processes: clarify requirements, plan the approach, implement in phases, validate at each step. Think of it as pair programming with an incredibly fast, incredibly knowledgeable partner who never gets tired.\n\n**Testing becomes proactive.** AI agents can analyze your changes, identify risk areas, generate test strategies, and even write the tests — all guided by frameworks that ensure consistency and coverage.\n\n## The Hard Part\n\nThe technology is ready. The hard part is the organizational shift. Teams need to:\n\n- Rethink their workflows around human-AI collaboration, not just human workflows with AI sprinkled in\n- Build trust in AI-assisted processes through incremental adoption, not big-bang transformation\n- Invest in the right frameworks and tooling — not every AI tool is created equal\n- Train developers to be effective AI collaborators, which is a genuinely new skill\n\n## Where the BMad Method Fits\n\nThis is exactly what the [BMad Method](https://docs.bmad-method.org/?ref=blog.bmadcode.com) was built for. An open-source framework that gives teams a structured, repeatable approach to AI-native development — from planning through deployment. Specialized agents, guided workflows, and intelligent planning that scales from solo developers to Fortune 500 engineering organizations.\n\nGoing AI-native is not a destination. It is an ongoing practice. And the teams that start now will have a compounding advantage over those that wait.\n\n*More on this topic coming soon. Subscribe to the newsletter to follow along.*\n",
+    "media": [
+      {
+        "id": "media_ai_native",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/ai-native.jpg",
+        "alt": "What Does Going AI-Native Actually Mean?"
+      }
+    ]
+  },
+  "body_md": "Brian Madison 在 The BMad Code 上写道，每隔几年，软件建造的基础假设都会被改写一次。容器改了部署，云改了基础设施，DevOps 改了谁对什么负责。这些变化加进来的不只是新工具，还改了团队默认怎么想问题。\n\n他认为，AI-native 是下一轮，而且多数团队理解错了。\n\n文章开头有一张题图，标题是 What Does Going AI-Native Actually Mean?。\n\n## 装上 Copilot，并不等于已经变成 AI-native\n\n他说，AI-native 不是装上 Copilot 就结束，不是让聊天机器人给 PR 做摘要，甚至也不等于用 Claude 或 GPT 生成样板代码。这些做法可以有用，但还不是他要说的那件事。\n\n在他的定义里，**AI 是软件开发生命周期里的正式参与者**：它进入规划、架构、建造、测试和发布的方式本身，既不是外挂，也不是可选项。\n\n## 规划、架构、实现和测试分别会怎么变\n\n**规划会更聪明。** 不必再由人从零写完每一个故事和验收标准。AI Agent 可以帮忙拆分 epic、找出边界情况，并起草考虑实际代码库的实现计划，不会只套一层通用模板。\n\n**架构变成对话。** 你描述想建造什么，AI 架构师提出该问的问题，考虑约束，再产出技术设计文档。人负责审阅和修改。他写得很明确：AI 并不取代你的判断，它加快这个判断过程。\n\n**实现是被引导的，不是被直接生成出来的。** 他认为更好的 AI-native 工作流不会只往外吐代码，它会走结构化过程：澄清需求、规划路径、分阶段实现，并在每一步做验证。他把它比作和一位速度很快、知识面很广、也不会疲倦的搭档结对编程。\n\n**测试变成主动的。** AI Agent 可以分析改动、识别风险区域、生成测试策略，甚至写出测试，并在框架引导下保持一致性和覆盖。\n\n## 难处在组织怎么转，不在技术是否就绪\n\n他的判断是：技术已经准备好了，难的是组织转变。团队需要做这些事：\n\n- 围绕人与 AI 的协作重新思考工作流，不要只在原有人的流程上撒一点 AI\n- 通过逐步采用建立对 AI 辅助流程的信任，避免一次性大改造\n- 把资源投到合适的框架和工具上，因为并非每一种 AI 工具都一样\n- 培养开发者成为有效的 AI 协作者，这本身是一种新技能\n\n## 他认为 BMad Method 就是为这件事准备的\n\n他写道，这正是 [BMad Method](https://docs.bmad-method.org/) 要解决的问题。它作为开源框架，给团队提供从规划到部署、可重复的 AI-native 开发方法，包括专门的 Agent、有引导的工作流，以及能够从独立开发者扩展到 Fortune 500 工程组织的智能规划。\n\n在他看来，走向 AI-native 是一种持续的实践，不是一个终点。现在开始的团队，会对等待的团队形成复利式的优势。\n\n文末他说，这个话题还会继续写，并邀请读者订阅通讯以跟进。完整论述以 2026 年 4 月 1 日发布的原文为准。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_ai_native",
+      "placement": "after_paragraph",
+      "after_md": "文章开头有一张题图，标题是 What Does Going AI-Native Actually Mean?。",
+      "evidence": "source_position_verified"
+    }
+  ]
+}

@@ -1,5 +1,134 @@
 [
   {
+    "id": "bmad-engineers-job-has-changed-2027",
+    "date": "2026-11-07",
+    "title": "BMad：工程师的工作变了，2027 年还该学什么",
+    "dek": "Brian Madison 认为 AI 没有取代软件工程师，但岗位已经变了；他还给出一张从任务想到架构的梯子。",
+    "url": "/a/bmad-engineers-job-has-changed-2027",
+    "source_url": "https://blog.bmadcode.com/blog/engineers-job-has-changed-2027/",
+    "tags": [
+      "BMad",
+      "AI-native",
+      "career"
+    ]
+  },
+  {
+    "id": "bmad-method-three-flows",
+    "date": "2026-07-04",
+    "title": "BMad Method 现在有三条路径，真正变化的是你盯着多少过程",
+    "dek": "Brian Madison 说，三条路径的差别在于人要亲自看多少规格展开、实现和审查，不能把它们当成快慢档。",
+    "url": "/a/bmad-method-three-flows",
+    "source_url": "https://blog.bmadcode.com/bmad-method-has-three-flows-now-heres-what-actually-changes-between-them/",
+    "tags": [
+      "BMad",
+      "BMad Method",
+      "agents"
+    ]
+  },
+  {
+    "id": "bmad-capabilities-not-a-pile-of-skills",
+    "date": "2026-06-14",
+    "title": "BMad 用对话做出 Creatina：一个会记住他、也会自己增长的创意缪斯",
+    "dek": "Brian Madison 从未为她写过一行代码。他用 BMad Agent Builder，把创意功能收进同一个自我，不再把它们当成一堆要调用的技能。",
+    "url": "/a/bmad-capabilities-not-a-pile-of-skills",
+    "source_url": "https://blog.bmadcode.com/blog/i-spoke-her-into-being/",
+    "tags": [
+      "BMad",
+      "BMad Builder",
+      "agents"
+    ]
+  },
+  {
+    "id": "bmad-engineers-permission-problem",
+    "date": "2026-05-29",
+    "title": "BMad：两周冲刺里只做一条故事，他的团队才真正用上了 Agent 模式",
+    "dek": "Brian Madison 认为采购许可证、学习日和分享会都改不了衡量单位；他把每人两周只做一条故事，而且必须用 Agent 模式做完。",
+    "url": "/a/bmad-engineers-permission-problem",
+    "source_url": "https://blog.bmadcode.com/blog/two-week-ai-sprint/",
+    "tags": [
+      "BMad",
+      "AI-native",
+      "engineering"
+    ]
+  },
+  {
+    "id": "bmad-update-web-bundles-bmm-6-8",
+    "date": "2026-05-25",
+    "title": "BMad 更新：Web Bundles 上线，BMad Method 从 v6.3 走到 v6.8.0",
+    "dek": "七周内发布了 7 个 BMad Method 版本，并把规划技能打包成 Gemini Gem 和 ChatGPT Custom GPT。",
+    "url": "/a/bmad-update-web-bundles-bmm-6-8",
+    "source_url": "https://blog.bmadcode.com/bmad-update-may-2026-web-bundles-prd-brief-platforms/",
+    "tags": [
+      "BMad",
+      "changelog",
+      "Web Bundles"
+    ]
+  },
+  {
+    "id": "bmad-code-podcast-ep1-marten-angner",
+    "date": "2026-05-04",
+    "title": "《The BMad Code》第 1 集：Marten Angner 把 25 年像素推敲换成 AI 策略",
+    "dek": "这是一期节目简介，不是逐字稿。Whiteport Design Studio 的 Marten Angner 说，他接触 BMad 的前 20 分钟就像一段恋爱故事。",
+    "url": "/a/bmad-code-podcast-ep1-marten-angner",
+    "source_url": "https://blog.bmadcode.com/podcast/trading-25-years-of-pixel-pushing-for-ai-strategy-the-token-slot-machine-youre-doing-ux-backwards-and-why-two-agents-beat-two-hundred-skills/",
+    "tags": [
+      "BMad",
+      "podcast",
+      "UX"
+    ]
+  },
+  {
+    "id": "bmad-ai-should-be-arguing-with-you",
+    "date": "2026-04-10",
+    "title": "BMad：AI 该跟你争辩，还得让你着急",
+    "dek": "Brian Madison 把亚马逊的 PRFAQ 做成对抗式流程，并用它在 40 分钟里否掉了自己一个会走红的功能设想。",
+    "url": "/a/bmad-ai-should-be-arguing-with-you",
+    "source_url": "https://blog.bmadcode.com/blog/your-ai-should-be-arguing-with-you-and-making-you-sweat/",
+    "tags": [
+      "BMad",
+      "PRFAQ",
+      "product"
+    ]
+  },
+  {
+    "id": "bmad-builder-v1-5-0",
+    "date": "2026-04-07",
+    "title": "BMad Builder v1.5.0：会记住你、会成长、也能自己醒来的 Agent",
+    "dek": "这次是 v1.0 以来最大的更新，构建器能做出无状态、有记忆和自主三类 Agent，并引入 sanctum 记忆和 PULSE。",
+    "url": "/a/bmad-builder-v1-5-0",
+    "source_url": "https://blog.bmadcode.com/bmad-builder-v1-5-0-agents-that-remember-evolve-and-wake-on-their-own/",
+    "tags": [
+      "BMad",
+      "BMad Builder",
+      "changelog"
+    ]
+  },
+  {
+    "id": "bmad-method-v6-2-1",
+    "date": "2026-04-07",
+    "title": "BMad Method v6.2.1：重写代码审查，Quick Dev 也加了自检关卡",
+    "dek": "代码审查改成三个并行层，CI 里新增 19 条规则的技能校验器，文档也补上了完整法文翻译。",
+    "url": "/a/bmad-method-v6-2-1",
+    "source_url": "https://blog.bmadcode.com/bmad-method-v6-2-1-rebuilt-code-review-smarter-quick-dev-and-a-growing-global-community/",
+    "tags": [
+      "BMad",
+      "BMad Method",
+      "changelog"
+    ]
+  },
+  {
+    "id": "bmad-what-does-going-ai-native-mean",
+    "date": "2026-04-01",
+    "title": "BMad：所谓 AI-native，不只是装上 Copilot",
+    "dek": "Brian Madison 认为 AI 要成为开发生命周期里的正式参与者，难处在组织怎么协作，工具本身是否就绪还在其次。",
+    "url": "/a/bmad-what-does-going-ai-native-mean",
+    "source_url": "https://blog.bmadcode.com/blog/what-does-going-ai-native-mean/",
+    "tags": [
+      "BMad",
+      "AI-native"
+    ]
+  },
+  {
     "id": "anthropic-fermat-agent-teams",
     "date": "2026-11-09",
     "title": "1000 个 Fable 5.2 智能体用 28.7 小时重做了费马大定理的形式化证明",

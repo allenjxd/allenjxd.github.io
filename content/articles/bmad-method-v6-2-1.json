@@ -1,0 +1,42 @@
+{
+  "id": "bmad-method-v6-2-1",
+  "date": "2026-04-07",
+  "published_at": "2026-04-07T06:42:58+00:00",
+  "ingested_at": "2026-11-11T02:28:02+08:00",
+  "source": {
+    "type": "web",
+    "url": "https://blog.bmadcode.com/bmad-method-v6-2-1-rebuilt-code-review-smarter-quick-dev-and-a-growing-global-community/",
+    "author": "Brian Madison",
+    "handle": "bmadcode",
+    "title_en": "BMad Method v6.2.1 — Rebuilt Code Review, Smarter Quick Dev, and a Growing Global Community"
+  },
+  "title": "BMad Method v6.2.1：重写代码审查，Quick Dev 也加了自检关卡",
+  "dek": "代码审查改成三个并行层，CI 里新增 19 条规则的技能校验器，文档也补上了完整法文翻译。",
+  "tags": [
+    "BMad",
+    "BMad Method",
+    "changelog"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "BMad Method v6.2.1 — Rebuilt Code Review, Smarter Quick Dev, and a Growing Global Community",
+    "text_md": "# BMad Method v6.2.1 — Rebuilt Code Review, Smarter Quick Dev, and a Growing Global Community\n\n![BMad Method v6.2.1 — Rebuilt Code Review, Smarter Quick Dev, and a Growing Global Community](https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmm-changelog-cropped.jpeg)\n\nThe latest significant release of BMad Method brings a ground-up rewrite of code review, major quality-of-life improvements to Quick Dev, new quality infrastructure, and growing international documentation contributions.\n\n## Code Review: Rebuilt from Scratch\n\nThe code review skill has been completely rewritten with a sharded step-file architecture and three parallel review layers:\n\n- **Blind Hunter** — catches issues without knowledge of intent\n- **Edge Case Hunter** — exhaustively traces branching paths and boundary conditions\n- **Acceptance Auditor** — validates against requirements and acceptance criteria\n\nThe new interactive post-review triage classifies findings into actionable categories: intent gaps, bad specs, patches, and deferred work. This isn't a lint check — it's structured, intent-based code review that catches what automated tools miss.\n\n## Quick Dev: Your Daily Driver, Leveled Up\n\nQuick Dev now features a smart intent cascade that eliminates unnecessary prompts when your intent is clear. A new self-check gate ensures implementing agents verify all tasks are complete before handoff. VS Code integration opens specs automatically, and clickable `path:line` review trails make navigating code effortless.\n\n## Quality Infrastructure\n\nA new deterministic skill validator with 19 rules across 6 categories is now integrated into CI, automatically catching anti-patterns in skill definitions — naming, variables, paths, and invocation syntax. This runs on every PR, keeping the framework's skill quality high as contribution velocity increases.\n\n## International Reach\n\nComplete French (fr-FR) documentation translation joins our existing Chinese (zh-CN) docs, which also received refinements across 8+ PRs this release. The BMad Method is becoming a global framework with community-driven translations.\n\n## By the Numbers\n\n- 103 commits from 9 contributors\n- 32 PRs merged\n- 559 files changed\n- New platform support: Ona\n\n## Contributors\n\nSpecial thanks to Alex Verkhovsky, Liang Shanhe, Emmanuel Atse, Murat K Ozcan, Moritz Eysholdt, lif, JasonYe, and Frank for their contributions to this release.\n\n## Get Started\n\n```\nnpx bmad-method install\n```\n\nEverything in BMad Method is free. No paywalls, no gated content. Community-driven development.\n\n- [GitHub](https://github.com/bmad-code-org/BMAD-METHOD?ref=blog.bmadcode.com)\n- [Documentation](https://docs.bmad-method.org/?ref=blog.bmadcode.com)\n- [YouTube](https://www.youtube.com/@BMadCode?ref=blog.bmadcode.com)\n",
+    "media": [
+      {
+        "id": "media_bmm_changelog_cropped",
+        "type": "image",
+        "url": "https://storage.ghost.io/c/1c/92/1c92cd21-0c5d-452e-a909-fbb43492ee35/content/images/2026/04/bmm-changelog-cropped.jpeg",
+        "alt": "BMad Method v6.2.1 — Rebuilt Code Review, Smarter Quick Dev, and a Growing Global Community"
+      }
+    ]
+  },
+  "body_md": "BMad Method 的这一次重要发布，把代码审查从底层重写了，也给 Quick Dev 做了不少日常使用上的改进，同时补上了新的质量基础设施，国际文档贡献也在增加。作者是 Brian Madison，文章作为更新说明发布在 The BMad Code。\n\n文首有一张更新配图，标注为 BMad Method v6.2.1 这次发布。\n\n## 代码审查改成三个并行层\n\n代码审查技能被完全重写，采用分片的步骤文件结构，并加上三层并行审查：\n\n- **Blind Hunter** 在不知道意图的情况下抓问题\n- **Edge Case Hunter** 穷尽式追踪分支路径和边界条件\n- **Acceptance Auditor** 对照需求和验收标准做校验\n\n审查之后新增了交互式分类，把发现归到可执行的类别里：意图缺口、糟糕的规格、补丁，以及延后处理的工作。Madison 强调，这是结构化、基于意图的代码审查，用来抓住自动化工具会漏掉的问题，它和一次 lint 检查不是同一件事。\n\n## Quick Dev 加了意图级联和自检关卡\n\nQuick Dev 现在有智能的意图级联：意图已经清楚时，就不再弹出不必要的提示。新的自检关卡要求负责任实现的 Agent 在交接前确认所有任务都已完成。它还和 VS Code 集成，会自动打开规格，并且提供可点击的 `path:line` 审查轨迹，方便在代码里跳转。\n\n## CI 里加了 19 条规则的技能校验器\n\n质量基础设施方面，新增了一个确定性的技能校验器，覆盖 6 个类别、共 19 条规则，已经接入 CI。它会自动抓技能定义里的反模式，包括命名、变量、路径和调用语法。每次 PR 都会跑，以便在贡献速度加快时，仍然守住框架的技能质量。\n\n## 法文文档补齐，中文文档也继续改\n\n完整的法文（fr-FR）文档翻译已经加入，原有的中文（zh-CN）文档在这一版里也经过 8 个以上 PR 的修订。Madison 写道，BMad Method 正变成一个由社区翻译推动的全球框架。\n\n## 这一版的数字\n\n- 9 位贡献者提交了 103 个 commit\n- 合并了 32 个 PR\n- 改动了 559 个文件\n- 新增平台支持：Ona\n\n文中特别感谢 Alex Verkhovsky、Liang Shanhe、Emmanuel Atse、Murat K Ozcan、Moritz Eysholdt、lif、JasonYe 和 Frank 对本版本的贡献。\n\n开始使用的命令是：\n\n```\nnpx bmad-method install\n```\n\n他说，BMad Method 里的内容全部免费，没有付费墙，也没有被锁住的内容，开发由社区推动。相关链接是 [GitHub](https://github.com/bmad-code-org/BMAD-METHOD)、[文档](https://docs.bmad-method.org/) 和 [YouTube](https://www.youtube.com/@BMadCode)。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_bmm_changelog_cropped",
+      "placement": "after_paragraph",
+      "after_md": "文首有一张更新配图，标注为 BMad Method v6.2.1 这次发布。",
+      "evidence": "source_position_verified"
+    }
+  ]
+}
