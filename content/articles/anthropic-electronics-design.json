@@ -1,0 +1,213 @@
+{
+  "id": "anthropic-electronics-design",
+  "date": "2026-11-09",
+  "published_at": "2026-11-09T00:00:00+00:00",
+  "ingested_at": "2026-11-11T08:25:00+08:00",
+  "source": {
+    "type": "web",
+    "url": "https://www.anthropic.com/research/claude-electronics-design",
+    "author": "Anthropic",
+    "handle": "AnthropicAI",
+    "title_en": "Testing Claude on real-world electronics design"
+  },
+  "title": "三台样机的电路板，是按 Claude 的设计文件直接做出来的",
+  "dek": "Anthropic 与 Diode Computers 合作，让 Claude Fable 5.2 设计扬声器电话、语音助手中枢和掌上电子宠物。电路无需返工，但这些设备仍是未经认证的样机。",
+  "tags": [
+    "Anthropic",
+    "Claude Fable",
+    "electronics",
+    "hardware",
+    "PCB"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Testing Claude on real-world electronics design",
+    "text_md": "# Testing Claude on real-world electronics design\n\nPublished Nov 9, 2026 · Team: Science\n\nA little over a year ago, we began testing how well Claude could design basic electronic circuits. We collaborated with [Diode Computers](https://www.diode.computer/), a company that designs and manufactures circuit boards, to train Claude on simple tasks—for example, on reading a chip’s datasheet and working out which parts a chip needs in order to run. The models we experimented with back then couldn’t reliably lay out a circuit board; they also struggled to design components that fit together. Now, Claude can both design and prototype electronic hardware from start to finish.\n\nEngineering an electronic device requires working through many complex steps and practical constraints. You have to not only design and simulate a circuit board, but also reason about the board’s physical layout and how it will behave, model the mechanical components, and write firmware—all while keeping track of which parts are readily available and what a factory is set up to build.\n\nTo see how newer Claude models have improved in this area, we collaborated with Diode again, this time asking Claude Fable 5.2 to design three electronic devices: a speakerphone, a voice-assistant hub, and a handheld virtual pet. With minimal prompting, Claude was able to use geometric reasoning to lay out each circuit board, anticipate manufacturing constraints, and make sure its designs would work within them. It revised its own work, modeled its designs in computer-aided design (CAD) software, and, finally, directed human engineers to build prototypes that worked without any fixes to their circuitry.\n\nFor each design, we began by giving Claude a simple prompt that outlined what kind of device to build and its main hardware requirements. The prompt for the speakerphone, for example, asked for “a puck that plugs into a computer over USB-C and includes microphones and a speaker, supporting Bluetooth with a PCB antenna.” Claude proceeded to write the device’s specifications, draw clean visual schematics, choose where to place the components on a printed circuit board (PCB), route the copper connections between them, design a 3D-printable enclosure, code the firmware, and prepare a parts list. Diode assembled the circuit boards and ran the firmware, under Claude’s direction. The final result was a prototype of a speakerphone that still works after weeks of use.\n\nClaude went through a similar process to build the voice-assistant hub and the virtual pet, and both are also still in good working order. Because the devices are early prototypes, we don’t yet know how they’ll hold up with continued use or whether they would pass commercial certifications.\n\n![The three devices built from Claude’s designs, from left to right: a battery-powered handheld pet, a home voice-assistant hub, and a USB speakerphone. Claude engineered the electronics and the enclosures and wrote firmware for each one.](https://www-cdn.anthropic.com/images/4zrzovbb/website/1a999b9164b6d23ac7b94c2dcdf4c9230e26e940-1920x1280.png)\n\n## Reasoning through geometric problems\n\nThe most substantial difference between Fable 5.2 and the models we used in our earlier tests was in how well Fable 5.2 reasoned through complex geometric problems, such as where to place components on a circuit board and how to route the copper connections between them.\n\nEarlier models had struggled to decide how to arrange basic components—placing supporting parts too far from the chips they served, for example, or orienting connectors incorrectly. Fable 5.2, by contrast, produced more compact, practical layouts. It routed the most important connections first: those that carry high-speed signals or high currents, or that are sensitive to noise. For example, for the voice-assistant hub, Claude started by routing the USB and Ethernet connections, which transmit signals along pairs of tracks—thin strips of copper on the board. It routed one pair of tracks at a time, keeping the two tracks in each pair the same length and correctly spaced. It also added tuning patterns—small zigzags that lengthen a track so that signals arrive at the same time—and arranged the parts of the power supply to make it more efficient.\n\nTo demonstrate how much better Fable 5.2 is than earlier models at laying out circuit boards, we asked Diode to run PCB Gym—an internal benchmark that scores models based on how well they can place components and reroute connections on board designs whose layouts have been removed. Fable 5.2 scored 69% on the benchmark, compared with 25% for Fable 5 (Figure 2). It also performed better on [BenchCAD 2.1](https://benchcad.org/), a public benchmark that tests whether models can rebuild 3D parts, assemblies, and circuit boards from engineering drawings and rendered images. Fable 5.2 scored 83.5%, nearly double the score of its predecessor, Claude Fable 5.1.\n\n![Scores plotted against total API cost for recent frontier models on Diode PCB Gym, a benchmark that instructs models to place components and route connections on circuit boards whose layouts have been removed.](https://www-cdn.anthropic.com/images/4zrzovbb/website/702c38e9c4a83120ea3734aab60726e39a69be23-1600x1040.png)\n\n## Revising designs\n\nEarlier models rarely revised their own work when designing PCB layouts, even when it became clear that their placement choices would never let them finish routing the connections. Over the past year, Diode designed many boards with these models that were 95% complete but still unusable. When Claude noticed one of its designs wasn’t working, it would change course without being prompted to do so.\n\nFor instance, when designing the speakerphone’s circuit board, which has four layers of copper, it reassigned signals to different pins on two of the chips. This allowed the tracks under the speakerphone’s touch-sensitive controls to stay on a single layer without crossing one another. Later, when the back of the board became too crowded, Claude swapped the signals on interchangeable pins and laid out a whole corner of the board again, rather than patching the problem with extra jumps between layers.\n\nAnd when placing tracks in its design file for the voice-assistant hub, Claude noticed that the copper connections were “getting too tangled to trace visually” and reasoned, “I should just rip these traces [tracks] and start fresh.” It proceeded to delete and reroute copper connections dozens of times until it found an arrangement that worked.\n\n![The routing for the voice-assistant hub before and after Claude reorganized the connections. Left: the microphone’s power track (blue lines) loops around the ground ring at the sound port, a front-side track (red) crosses the ring, and a via—a small hole that connects layers of copper—is placed between the microphone’s pads. Right: the same area after Claude rerouted the power track, with the ring clear and grounded. Claude’s reasoning for redoing the version on the left: “That’s risky placement under a bottom-port MEMS mic, even if clearance is technically fine, so I want to redo the local routing cleanly for both identical mic footprints.”](https://www-cdn.anthropic.com/images/4zrzovbb/website/65c50455d3f6a57f0846ec407425f346ab0e1f68-1920x949.png)\n\n## Using software and documentation\n\nWhen a design decision for one of the devices depended on the details of a particular part, Claude often checked that part’s datasheet—a technical document published by the manufacturer. When asked whether the handheld pet would work without a battery, Claude read the charger’s datasheet and answered that it would run on USB power but predicted that the charging light would flicker, because the charger keeps recharging a small capacitor in the battery’s place.\n\nTo route the connections on the voice-assistant hub, Claude started with the design software Diode provided, which let it run the router (a tool for drawing tracks) built into KiCad, a widely used circuit board design program. KiCad’s router drew one track at a time between two points Claude chose. But the hub had long tracks running from a 100-pin connector, and Claude judged that routing these one by one would take too much step-by-step guidance. Instead, Claude wrote its own router: an algorithm that divides the board into a grid and searches it to find a clear path for each track. Within about half an hour, Claude had a router that could lay each long track in roughly a second. When Claude spotted an audio clock track running too close to the Ethernet tracks, it adjusted the router to leave more room around sensitive tracks.\n\n## Keeping track of constraints and downstream effects\n\nDecisions made in one part of a design have downstream effects, which Claude kept track of. While designing each device’s enclosure, it wrote code to check that a 3D model of the circuit board would fit inside the enclosure without any components colliding. For example, it found that the speakerphone’s board couldn’t be lowered straight into the enclosure, because the mute switch would hit the back wall. Claude worked out that the board would fit if it was tilted by about 25 degrees during installation. It tested this in its 3D model and added the step to the assembly instructions.\n\nWhen designing the enclosure for the voice-assistant hub, Claude calculated that a 25 mm-long microphone port—the opening that lets sound reach the microphone—would resonate near 3.4 kHz. That is “right in the voice band,” it reasoned, “which is not ideal though still usable for voice assistant purposes. A better approach is a wedge-shaped enclosure that’s tall at the rear and steps down low at the front.” The wedge shape shortened the ports to about 10 mm, which raised the resonant frequency to about 8.9 kHz, at the very edge of the range used for speech.\n\nClaude also wrote firmware for the speakerphone that dims its ring of LED lights as the audio becomes louder, to keep the device under the electrical current limit Claude had designed into the board.\n\n![Claude’s designs for the home voice-assistant hub and the finished prototype. Claude wrote the code that modeled the case in CAD, laid out the circuit board, and wrote the firmware.](https://www-cdn.anthropic.com/images/4zrzovbb/website/b2caed6f266afefb1d33d1a8f8b676fc9472d506-2048x1217.png)\n\n## Designing for real-world manufacturing\n\nIn electronics design, engineers have to work within the constraints of the real world. That is, they have to make sure a factory can actually make the thing they want to build. They do this by running two kinds of checks: design-for-manufacturing (DFM) checks, which compare a circuit board’s geometry with the factory’s manufacturing limits, and sourcing checks, which confirm that their distributors have the parts in stock. Claude ran these checks itself and sorted the results into problems that needed fixing and flags it could ignore. Its checks for the voice-assistant hub flagged six slivers of solder mask (the protective coating on a circuit board) as too thin to manufacture. Claude fixed them by widening the openings in the solder mask, without moving any parts. The checks also flagged a connection between two grounds (shared return paths for electrical current) as an error, because the automated checker hadn’t recognized that the connection was deliberate. Claude correctly reasoned that it wouldn’t affect performance and ignored the flag.\n\nDiode manufactured all three boards directly from Claude’s design files, without any back-and-forth over adjustments. Factories and engineers often have to work through multiple rounds of manufacturing changes, and the Diode team told us they were surprised that they didn’t have to do this with Claude.\n\nThe speakerphone’s four copper layers. The dashed circle marks the touch wheel, where copper electrodes sense the user’s finger. Moving a track from one layer to another requires drilling a hole in the board, and under the touch wheel, that hole would go through an electrode. To avoid this, Claude kept each signal track under the wheel on a single layer, and it chose the chips’ pin assignments so that those tracks wouldn’t need to cross one another. It also kept the area around the Bluetooth antenna (the zigzag at the top) clear of other copper and holes on every layer, so nearby metal wouldn’t weaken its signal.\n\nThe voice-assistant hub’s four copper layers. Claude added two areas of grounded copper to the power layer (green), directly behind most of the tracks on the back of the board that carry high-speed signals. This gives the signals a nearby return path, which helps reduce interference.\n\nThe speakerphone’s circuit board can’t be lowered straight into the enclosure, because the mute switch’s knob would hit the back wall (red). Claude worked out how to install the board by tilting it about 25 degrees and then swinging it flat, and added this step to the assembly instructions.\n\n## Limitations and next steps\n\nAll three of these devices are still prototypes: they haven’t been through electrical validation, antenna tuning, thermal testing, or certification, and they weren’t designed for mass production. Since Claude wasn’t connected to test equipment or to the machines that make and assemble circuit boards, engineers at Diode had to physically build and test the prototypes.\n\nEven so, over the past year, Claude has improved substantially at reasoning through decisions about component placement and routing, and it can now design electronics with minimal human guidance and help people build the prototypes. Other models are making progress here, too: OpenAI recently wrote about using its models to design a handheld device. Work like this could help engineers build and test new hardware designs faster.\n\nNext, we plan to investigate whether Claude can design denser, faster, and more complex boards, check them in simulation, and learn from measurements taken on the finished devices.\n\n## Footnotes\n\n1. Anthropic has a commercial relationship with Diode.\n2. This was one of the few instances where the Diode team prompted Claude (“Will it work if there is no battery?”). Overall, their prompting was minimal and limited to short directives (e.g., “clean up the schematic” and “continue”).\n\n## Authors & acknowledgements\n\nThis post is a collaboration between researchers and engineers at Anthropic, including Mike Cretella, Connor Jennings, and Brent Yi, and Craig Chen and the team at Diode Computers. Anthropic has worked with Diode electrical engineers on PCB design since 2025. Editorial support from Xander Balwit, Tom Chivers, Rebecca Hiscott, and Caitlin Love.\n",
+    "media": [
+      {
+        "id": "media_hero",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/b953cc611ebe78f0b84e996dd54a614efd38b3f4-2000x1125.jpg",
+        "alt": "Abstract collage combining a close-up photograph of a circuit board with bright green panels of winding copper-track patterns."
+      },
+      {
+        "id": "media_video_hub",
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=vdYynH177h0",
+        "alt": "Claude Fable 5.2 designs a working voice-assistant hub",
+        "poster": "https://i.ytimg.com/vi/vdYynH177h0/maxresdefault.jpg"
+      },
+      {
+        "id": "media_three_devices",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/1a999b9164b6d23ac7b94c2dcdf4c9230e26e940-1920x1280.png",
+        "alt": "Three small electronic devices on a wooden table: a handheld virtual pet, a dark voice-assistant hub, and a round white USB speakerphone."
+      },
+      {
+        "id": "media_pcb_gym",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/702c38e9c4a83120ea3734aab60726e39a69be23-1600x1040.png",
+        "alt": "Scatter plot of Diode PCB Gym score against total API cost for recent frontier models."
+      },
+      {
+        "id": "media_routing",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/65c50455d3f6a57f0846ec407425f346ab0e1f68-1920x949.png",
+        "alt": "Two close-up views of microphone routing on the hub circuit board. On the left, a blue power track loops around the ground ring and a red track crosses it; on the right, the same area after rerouting, with the ring clear."
+      },
+      {
+        "id": "media_hub_design",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/b2caed6f266afefb1d33d1a8f8b676fc9472d506-2048x1217.png",
+        "alt": "Claude’s design for the voice-assistant hub, showing the schematic, the circuit board layout, a model of the wedge-shaped enclosure, and the finished dark prototype."
+      },
+      {
+        "id": "media_spk_l1",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/1e8e384cb5bbf67da75851ecce146f47a425af0b-1888x1062.png",
+        "alt": "Speakerphone circuit board, layer 1 (front): parts and signal tracks."
+      },
+      {
+        "id": "media_spk_l2",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/23a2565ddbc134172de07ac555329108c418faab-1888x1062.png",
+        "alt": "Speakerphone circuit board, layer 2 (inner 1): ground plane."
+      },
+      {
+        "id": "media_spk_l3",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/64f6eac9c2164c89b3320fa831148326c227662f-1888x1062.png",
+        "alt": "Speakerphone circuit board, layer 3 (inner 2): ground, hatched under the touch wheel, and power."
+      },
+      {
+        "id": "media_spk_l4",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/66f89422bb621989d75405011bb1659417a67cb6-1888x1062.png",
+        "alt": "Speakerphone circuit board, layer 4 (back): the touch wheel's electrodes."
+      },
+      {
+        "id": "media_hub_l1",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/dd387afa4631f360f769522f20878a64a1095f72-1888x1062.png",
+        "alt": "Voice-assistant hub circuit board, layer 1 (front): parts and signals, with ground poured between them."
+      },
+      {
+        "id": "media_hub_l2",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/43048bd3613a042096a0fc4ad236ab727a130e57-1888x1062.png",
+        "alt": "Voice-assistant hub circuit board, layer 2 (inner 1): solid ground under the front-side signals."
+      },
+      {
+        "id": "media_hub_l3",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/83100ba17df9b9120ac4f801efba2c5bd7654619-1888x1062.png",
+        "alt": "Voice-assistant hub circuit board, layer 3 (inner 2): 5 V and 3.3 V power, with two areas of ground in green."
+      },
+      {
+        "id": "media_hub_l4",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/cec166cda9bc45861879db6a1ab6cc8edc6535b7-1888x1062.png",
+        "alt": "Voice-assistant hub circuit board, layer 4 (back): signals and ground; the microphones' side."
+      },
+      {
+        "id": "media_install",
+        "type": "image",
+        "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/64a2aade621d8d6a50c57f9f3d0ac050ea778423-2048x949.png",
+        "alt": "Cutaway drawing of the speakerphone enclosure showing the circuit board tilted at about 25 degrees as it is installed, with the point where the mute switch knob would meet the back wall marked in red."
+      }
+    ]
+  },
+  "body_md": "一年多以前，Anthropic 开始测试 Claude 能不能设计基本的电子电路。那时的模型还不能可靠地排布电路板，也很难让不同零件在空间里对得上。\n\n2026 年 11 月 9 日，他们和电路板设计制造公司 Diode Computers 再次合作，把这件事写进了一篇研究说明。文中的结论是：现在的 Claude 已经能把电子设备从设计做到样机。文末注明，Anthropic 与 Diode 有商业合作关系。\n\n他们这次用的是 Claude Fable 5.2，要求它设计三台设备：一台扬声器电话、一台家用语音助手中枢，还有一台掌上电子宠物。提示词写得很短，主要说明要做什么、硬件上要满足哪些条件。扬声器电话的提示词是：a puck that plugs into a computer over USB-C and includes microphones and a speaker, supporting Bluetooth with a PCB antenna。\n\nClaude 接着写规格、画原理图、在印刷电路板（PCB）上摆放元件并布线，再设计可 3D 打印的外壳、编写固件、准备零件清单。Diode 按它的指导组装电路板并运行固件。做成的扬声器电话样机，用了几周仍然能工作。语音助手中枢和电子宠物也走了类似流程，目前都还工作正常。\n\n文章开头还放了一段 YouTube 视频，标题是 Claude Fable 5.2 designs a working voice-assistant hub，时长 48 秒。简介写的是：Fable 5.2 从一段提示出发，设计了这台语音助手中枢，完成了电路板布局、外壳的 CAD 建模和固件；Diode Computers 按 Claude 的设计文件直接把板做了出来；这是早期样机，也是该项目三台设备中的一台。简介同样提到 Anthropic 与 Diode 有商业合作。这段说明来自视频标题和简介，撰稿时没有完整观看视频，因此不转述画面里的具体过程。\n\n因为这些设备仍是早期样机，作者写明：他们还不知道设备继续使用会不会耐用，也不知道能不能通过商业认证。\n\n文中这张照片从左到右依次是电池供电的掌上宠物、深色的家用语音助手中枢，以及圆形的 USB 扬声器电话。Claude 设计了它们的电子部分和外壳，并写了各自的固件。\n\n## 几何问题上的差别最大\n\n和更早的测试相比，Fable 5.2 最明显的变化，是处理复杂几何问题的能力，比如元件放在板子的哪里，以及铜线怎么走。\n\n更早的模型常常把芯片周边的配套零件放得太远，或者把连接器方向弄反。Fable 5.2 给出的布局更紧凑，也更实用。它会先走最重要的连接：高速信号、大电流，以及容易受干扰的线路。以语音助手中枢为例，它先布 USB 和以太网。这类连接是成对的铜线，它一次只布一对，并让同一对里的两根线等长、间距正确。它还加上调谐用的小锯齿，把某根线加长，好让信号同时到达，电源部分的摆放也按提高效率来安排。\n\n为了比较布局能力，他们让 Diode 跑了内部基准测试 PCB Gym：把已有电路板的布局去掉，再看模型能否重新放置元件并布线。Fable 5.2 得了 69%，Fable 5 是 25%。在公开基准 BenchCAD 2.1 上，模型要根据工程图纸和渲染图重建三维零件、装配体和电路板，Fable 5.2 得了 83.5%，差不多是前代 Claude Fable 5.1 的两倍。\n\n文中这张散点图，横轴是总 API 费用，纵轴是近期前沿模型在 Diode PCB Gym 上的分数。\n\n## 布局走不下去时，它会自己推倒重来\n\n更早的模型在设计 PCB 时很少回头改自己的方案，哪怕已经能看出这样摆下去，线是布不完的。过去一年里，Diode 用那些模型做了不少板，完成度到了 95%，却仍然没法用。这次 Claude 发现设计行不通时，会在没有人要求的情况下改方向。\n\n扬声器电话的电路板有四层铜。设计时，它把两颗芯片上的信号重新分到了不同的引脚，好让触摸控制下方的走线留在同一层，并且互不交叉。后来板子背面太挤，它又把可以互换的引脚上的信号对调，把一个角落重新布过，而没有靠在层与层之间多打过孔来凑合。\n\n给语音助手中枢布线时，它发现铜线已经“getting too tangled to trace visually”，于是判断：“I should just rip these traces [tracks] and start fresh.” 它删掉并重布了几十次，直到找出能走通的方案。\n\n对比图左侧，麦克风电源线（蓝线）绕着声孔处的地环走，正面的红线穿过这个环，过孔打在了麦克风焊盘之间。过孔是连接不同铜层的小孔。右侧是重布之后，环的周围干净并接地。Claude 重做左侧方案时的理由是：“That’s risky placement under a bottom-port MEMS mic, even if clearance is technically fine, so I want to redo the local routing cleanly for both identical mic footprints.”\n\n## 它会读数据手册，也会自己写布线程序\n\n某项设计要看具体零件细节时，Claude 常常去读制造商发布的数据手册。有人问这只掌上宠物没有电池能不能工作，它读了充电器的数据手册，回答说可以用 USB 供电，但充电灯可能会闪，因为充电器会不停给电池位置上的一只小电容充电。脚注说明，这是 Diode 团队少数几次主动发问的例子，问的是 “Will it work if there is no battery?”。总体来看，他们的提示很少，多半是 “clean up the schematic” 和 “continue” 这类短指令。\n\n给语音助手中枢布线时，Claude 先用了 Diode 提供的设计软件，调用常见电路板设计程序 KiCad 自带的布线器。这个布线器一次只在 Claude 选定的两点之间画一根线。中枢板上有从 100 针连接器拉出来的长线，它判断一根根手工引导会太慢，于是自己写了一个布线算法：把板子划成网格，再搜索每根线的通路。大约半小时后，这套程序已经能在大约一秒钟里布完一根长线。后来它发现一根音频时钟线离以太网走线太近，又改了程序，给敏感线路留出更多空间。\n\n## 外壳、谐振和电流限制会互相牵扯\n\n设计某一部分时，后面的约束它也会跟着算。做外壳时，它写了代码，检查电路板的三维模型放进外壳后会不会和零件碰撞。扬声器电话的板如果垂直放进去，静音开关会撞上后壁。它算出安装时把板倾斜大约 25 度就能进去，在三维模型里验证了这一步，并写进了装配说明。\n\n给语音助手中枢做外壳时，它算出 25 毫米长的麦克风声孔会在大约 3.4 kHz 附近谐振。它的判断是：这正好落在语音频段里，not ideal though still usable for voice assistant purposes。更好的办法是做成后面高、前面低的楔形外壳。楔形把声孔缩短到大约 10 毫米，谐振频率升到大约 8.9 kHz，到了语音所用频率范围的边缘。\n\n它还给扬声器电话写了固件：音频变响时，环形 LED 会变暗，好让设备不超过它给这块板设计的电流上限。\n\n文中这张图同时给出了家用语音助手中枢的设计方案和做好的样机。外壳的 CAD 模型、电路板布局和固件，都是 Claude 写的。\n\n## 工厂能做出来，三块板都没有来回改版\n\n电子设计还要满足工厂的真实限制。常见的检查有两类：可制造性设计（DFM）检查，对照工厂的加工极限看电路板几何是否合格；采购检查，确认经销商有现货。Claude 自己跑了这些检查，并把结果分成必须修的问题和可以忽略的提示。语音助手中枢的检查标出了六处阻焊层（电路板上的保护涂层）过薄，做不出来。它把阻焊开口加宽，没有移动任何零件。检查还把两处地（电流的公共回流路径）之间的连接标成了错误，因为自动检查器没认出这是有意设计的。Claude 判断这不影响性能，就没有改。\n\n三块板都是按 Claude 的设计文件直接生产的，没有为了改设计来回沟通。工厂和工程师通常要经过多轮制造变更，Diode 团队对作者说，这次他们不必这样做，让他们感到意外。\n\n扬声器电话四层铜的图里，虚线圆标出了触摸轮，铜电极在这里感应手指。要把一根线换到另一层，就要在板上钻孔；这个孔如果打在触摸轮下方，会穿过电极。为了避免这一点，Claude 把触摸轮下方的每条信号线都留在同一层，并选择芯片引脚分配，让这些线不必交叉。蓝牙天线是顶部的锯齿形结构，它让每一层在天线周围都不要放其他铜和孔，以免附近的金属削弱信号。\n\n语音助手中枢的四层铜图里，Claude 在电源层（绿色）加了两片接地铜，位置正好对着背面大多数高速信号线的后方。这样信号附近就有回流路径，有助于减少干扰。\n\n装配图再次标出了前面那个 25 度的安装问题：静音开关的旋钮会碰到后壁（图中为红色）。Claude 的办法是先把板倾斜大约 25 度，再摆平，并把这一步写进了装配说明。\n\n## 样机还没经过验证，下一步要看更密、更快的板\n\n这三台设备都还是样机。它们没有做过电气验证、天线调谐、热测试或认证，也不是按量产来设计的。Claude 没有接到测试设备，也没有接到生产和组装电路板的机器，因此 Diode 的工程师必须亲手把样机组装并测完。\n\n即便如此，作者认为，过去一年里 Claude 在元件摆放和布线决策上进步很大，现在已经能在很少的人工指导下设计电子产品，并帮助人们把样机做出来。文中也提到，其他模型同样在进步，OpenAI 最近写过用自己的模型设计一款手持设备。这类工作有可能让工程师更快地做出并测试新的硬件方案。\n\n接下来，他们计划观察 Claude 能不能设计更密、更快、更复杂的电路板，先在仿真里检查，再根据成品上的测量结果改进。\n\n这篇文章是 Anthropic 的研究人员和工程师与 Diode 团队合作写成的，文中点名的有 Mike Cretella、Connor Jennings、Brent Yi，以及 Diode 的 Craig Chen 和团队。Anthropic 从 2025 年起就与 Diode 的电气工程师合作做 PCB 设计。编辑支持来自 Xander Balwit、Tom Chivers、Rebecca Hiscott 和 Caitlin Love。\n\n读这类演示时，可以把“电路不用人改”和“还没做完验证”放在一起看。三块板按设计文件直接做出来，而且电路没有返工，说明布局和可制造性检查已经能走到这一步；电气、天线、热和认证都还没做，则说明它目前仍停在样机阶段。若要自己拿类似流程去做硬件，需要先分清：哪些结果已经在实物上得到确认，哪些还只是设计文件通过了工厂的第一关。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_hero",
+      "placement": "after_paragraph",
+      "after_md": "2026 年 11 月 9 日，他们和电路板设计制造公司 Diode Computers 再次合作，把这件事写进了一篇研究说明。文中的结论是：现在的 Claude 已经能把电子设备从设计做到样机。文末注明，Anthropic 与 Diode 有商业合作关系。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_video_hub",
+      "placement": "after_paragraph",
+      "after_md": "文章开头还放了一段 YouTube 视频，标题是 Claude Fable 5.2 designs a working voice-assistant hub，时长 48 秒。简介写的是：Fable 5.2 从一段提示出发，设计了这台语音助手中枢，完成了电路板布局、外壳的 CAD 建模和固件；Diode Computers 按 Claude 的设计文件直接把板做了出来；这是早期样机，也是该项目三台设备中的一台。简介同样提到 Anthropic 与 Diode 有商业合作。这段说明来自视频标题和简介，撰稿时没有完整观看视频，因此不转述画面里的具体过程。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_three_devices",
+      "placement": "after_paragraph",
+      "after_md": "文中这张照片从左到右依次是电池供电的掌上宠物、深色的家用语音助手中枢，以及圆形的 USB 扬声器电话。Claude 设计了它们的电子部分和外壳，并写了各自的固件。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_pcb_gym",
+      "placement": "after_paragraph",
+      "after_md": "文中这张散点图，横轴是总 API 费用，纵轴是近期前沿模型在 Diode PCB Gym 上的分数。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_routing",
+      "placement": "after_paragraph",
+      "after_md": "对比图左侧，麦克风电源线（蓝线）绕着声孔处的地环走，正面的红线穿过这个环，过孔打在了麦克风焊盘之间。过孔是连接不同铜层的小孔。右侧是重布之后，环的周围干净并接地。Claude 重做左侧方案时的理由是：“That’s risky placement under a bottom-port MEMS mic, even if clearance is technically fine, so I want to redo the local routing cleanly for both identical mic footprints.”",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_hub_design",
+      "placement": "after_paragraph",
+      "after_md": "文中这张图同时给出了家用语音助手中枢的设计方案和做好的样机。外壳的 CAD 模型、电路板布局和固件，都是 Claude 写的。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_spk_l1",
+      "placement": "after_paragraph",
+      "after_md": "扬声器电话四层铜的图里，虚线圆标出了触摸轮，铜电极在这里感应手指。要把一根线换到另一层，就要在板上钻孔；这个孔如果打在触摸轮下方，会穿过电极。为了避免这一点，Claude 把触摸轮下方的每条信号线都留在同一层，并选择芯片引脚分配，让这些线不必交叉。蓝牙天线是顶部的锯齿形结构，它让每一层在天线周围都不要放其他铜和孔，以免附近的金属削弱信号。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_spk_l2",
+      "placement": "after_paragraph",
+      "after_md": "扬声器电话四层铜的图里，虚线圆标出了触摸轮，铜电极在这里感应手指。要把一根线换到另一层，就要在板上钻孔；这个孔如果打在触摸轮下方，会穿过电极。为了避免这一点，Claude 把触摸轮下方的每条信号线都留在同一层，并选择芯片引脚分配，让这些线不必交叉。蓝牙天线是顶部的锯齿形结构，它让每一层在天线周围都不要放其他铜和孔，以免附近的金属削弱信号。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_spk_l3",
+      "placement": "after_paragraph",
+      "after_md": "扬声器电话四层铜的图里，虚线圆标出了触摸轮，铜电极在这里感应手指。要把一根线换到另一层，就要在板上钻孔；这个孔如果打在触摸轮下方，会穿过电极。为了避免这一点，Claude 把触摸轮下方的每条信号线都留在同一层，并选择芯片引脚分配，让这些线不必交叉。蓝牙天线是顶部的锯齿形结构，它让每一层在天线周围都不要放其他铜和孔，以免附近的金属削弱信号。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_spk_l4",
+      "placement": "after_paragraph",
+      "after_md": "扬声器电话四层铜的图里，虚线圆标出了触摸轮，铜电极在这里感应手指。要把一根线换到另一层，就要在板上钻孔；这个孔如果打在触摸轮下方，会穿过电极。为了避免这一点，Claude 把触摸轮下方的每条信号线都留在同一层，并选择芯片引脚分配，让这些线不必交叉。蓝牙天线是顶部的锯齿形结构，它让每一层在天线周围都不要放其他铜和孔，以免附近的金属削弱信号。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_hub_l1",
+      "placement": "after_paragraph",
+      "after_md": "语音助手中枢的四层铜图里，Claude 在电源层（绿色）加了两片接地铜，位置正好对着背面大多数高速信号线的后方。这样信号附近就有回流路径，有助于减少干扰。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_hub_l2",
+      "placement": "after_paragraph",
+      "after_md": "语音助手中枢的四层铜图里，Claude 在电源层（绿色）加了两片接地铜，位置正好对着背面大多数高速信号线的后方。这样信号附近就有回流路径，有助于减少干扰。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_hub_l3",
+      "placement": "after_paragraph",
+      "after_md": "语音助手中枢的四层铜图里，Claude 在电源层（绿色）加了两片接地铜，位置正好对着背面大多数高速信号线的后方。这样信号附近就有回流路径，有助于减少干扰。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_hub_l4",
+      "placement": "after_paragraph",
+      "after_md": "语音助手中枢的四层铜图里，Claude 在电源层（绿色）加了两片接地铜，位置正好对着背面大多数高速信号线的后方。这样信号附近就有回流路径，有助于减少干扰。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_install",
+      "placement": "after_paragraph",
+      "after_md": "装配图再次标出了前面那个 25 度的安装问题：静音开关的旋钮会碰到后壁（图中为红色）。Claude 的办法是先把板倾斜大约 25 度，再摆平，并把这一步写进了装配说明。",
+      "evidence": "source_position_verified"
+    }
+  ]
+}

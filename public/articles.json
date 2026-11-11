@@ -1,5 +1,50 @@
 [
   {
+    "id": "alphaproof-code-signal",
+    "date": "2026-11-10",
+    "title": "他们用四周时间，给 Signal 的核心加密代码做了机器检查的形式化证明",
+    "dek": "Google DeepMind 的 AlphaProof Code 由专家审定规范，再用 Gemini Carbon 写出超过 600 万行 Lean。作者称这是首次把这类已被广泛部署的协议实现，证明到设备上实际运行的代码。",
+    "url": "/a/alphaproof-code-signal",
+    "source_url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+    "tags": [
+      "Google DeepMind",
+      "Gemini",
+      "formal verification",
+      "Signal",
+      "security"
+    ]
+  },
+  {
+    "id": "anthropic-electronics-design",
+    "date": "2026-11-09",
+    "title": "三台样机的电路板，是按 Claude 的设计文件直接做出来的",
+    "dek": "Anthropic 与 Diode Computers 合作，让 Claude Fable 5.2 设计扬声器电话、语音助手中枢和掌上电子宠物。电路无需返工，但这些设备仍是未经认证的样机。",
+    "url": "/a/anthropic-electronics-design",
+    "source_url": "https://www.anthropic.com/research/claude-electronics-design",
+    "tags": [
+      "Anthropic",
+      "Claude Fable",
+      "electronics",
+      "hardware",
+      "PCB"
+    ]
+  },
+  {
+    "id": "gemini-4-carbon-available",
+    "date": "2026-11-10",
+    "title": "Gemini 4 Carbon 向付费开发者开放，入门价是每百万 token 2 美元和 10 美元",
+    "dek": "Google 把最强 Gemini 模型开放到付费 API 和 Ultra 订阅。多数常规工程仍建议用 Argon，Carbon 留给更长、更难的任务，11 月 30 日后价格会翻倍。",
+    "url": "/a/gemini-4-carbon-available",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+    "tags": [
+      "Gemini",
+      "Google",
+      "agents",
+      "cybersecurity",
+      "Antigravity"
+    ]
+  },
+  {
     "id": "bmad-engineers-job-has-changed-2027",
     "date": "2026-11-07",
     "title": "BMad：工程师的工作变了，2027 年还该学什么",
