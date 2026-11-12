@@ -1,0 +1,103 @@
+{
+  "id": "gemini-decisions-api",
+  "date": "2026-11-11",
+  "published_at": "2026-11-11T18:00:00+00:00",
+  "ingested_at": "2026-11-12T08:45:00+08:00",
+  "source": {
+    "type": "web",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    "author": "Min Choi and Felix Yu",
+    "handle": "GoogleDeepMind",
+    "title_en": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+    "related_url": "https://x.com/sundarpichai/status/2120581155078729728"
+  },
+  "title": "Google 推出 Gemini Decisions API：一次请求给 1000 个封闭式问题打分，输出 token 不收费",
+  "dek": "新模型 Gemini Decision 1 不逐字生成答案，直接在一次前向计算里给候选项打分，返回概率和置信度。每百万输入 token 0.10 美元，端到端延迟 150 到 250 毫秒，Google 内部已用于模型路由、Stitch 设计和搜索安全层。",
+  "tags": [
+    "Gemini",
+    "Google",
+    "API",
+    "agents",
+    "pricing"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+    "text_md": "# Gemini Decisions API: Fast, calibrated multimodal decisions\n\nNov 11, 2026\n\nIntroducing the Gemini Decisions API, powered by our new Gemini Decision 1 model. Evaluate up to 1,000 yes/no, choice, and rubric-scoring questions in a fast, single pass across text, images, audio, video, and PDFs.\n\nMin Choi  \nProduct Manager, Google DeepMind\n\nFelix Yu  \nPrincipal Scientist, Google DeepMind\n\nToday, we’re introducing the Gemini Decisions API, a new endpoint for fast, closed-set decisions powered by our new Gemini Decision 1 model (gemini-decision-1), available through the [Gemini API](https://aistudio.google.com/docs/decisions-api) in [Google AI Studio](https://aistudio.google.com/apps/bundled/gemini-decisions-api-playground?fullscreenApplet=true).\n\nThe Decisions API gives you purpose-built primitives for bounded choices like tool selection, policy checks, model routing, and context grading. You can pass one multimodal input across text, images, audio, video, and PDFs (up to 256K tokens) along with up to 1,000 independent questions. Rather than generating answer text token by token, Gemini Decision 1 scores your candidate options in a single forward pass, returning probabilities and confidence scores in 150-250 ms end-to-end latency at $0.10 per 1M input tokens with zero output tokens billed.\n\n![Comparison of Gemini Decision and other APIs against various benchmarks](https://storage.googleapis.com/gweb-uniblog-publish-prod/images/decisions-architecture_f0NFXU9.width-1200.format-webp.webp)\n\n## Strong performance and calibration\n\nOn benchmarks spanning agent routing, reasoning, ranking, and multimodal understanding, Gemini Decision 1 leads across the suite, with the lowest calibration error.\n\n![Comparison of the Decisions API and other APIs to benchmark](https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-decision__benchmarks__tab.width-1200.format-webp_3LrengT.webp)\n\nGemini Decision 1 scores options without token-by-token decoding, keeping median latency 50-100 ms of model compute (150-250 ms end-to-end), across multimodal inputs and contexts up to 16K tokens, remaining nearly flat from 1 to 100 questions per request. With zero output tokens billed, Gemini Decision 1 with the Decisions API is nearly 5x cheaper across the shared benchmark suite than Gemini 3.5 Flash-Lite with the Interactions API.\n\n## Native multimodal evaluation across three decision types in one pass\n\nBuilt on Gemini’s native multimodal architecture, Gemini Decision 1 can process text, images, audio, video, and PDFs directly in a single forward pass. You can combine modalities in one shared input, such as pairing a call recording with account metadata or a scanned PDF claim with damage photos, and tune resolution on image and video inputs to control visual detail and token cost.\n\nYou can evaluate multiple questions against that shared input in a single request, mixing yes/no checks, multiple choice, and rubric scores. Every answer includes a confidence score (from 0 to 1) so your code can route ambiguous cases to a fallback or human reviewer:\n\n* **noul (Yes/No):** Estimates the probability that a yes/no condition holds, with optional true and false description criteria.\n* **choice (Multiple Choice):** Selects from 2 to 255 choices, returning the winner and normalized probabilities for every candidate.\n* **score (Ordered Rubric):** Grades inputs across an ordered rubric (starting at 0), returning a continuous weighted score and per-level probabilities.\n\nThe `input` field uses the same `Content` block format as the [Interactions API](https://aistudio.google.com/docs/interactions-overview). Here is how to check a photo of a breakroom counter, together with a text note, against all three question types in one request:\n\n```\nfrom google import genai\n\nclient = genai.Client(http_options={\"api_version\": \"v1beta\"})\n\nresult = client.decisions.create(\n    model=\"gemini-decision-1\",\n    input=[{\n            \"type\": \"image\",\n            \"uri\": \"https://storage.googleapis.com/generativeai-downloads/images/spill.jpg\",\n            \"mime_type\": \"image/jpeg\",\n        },\n        {\n            \"type\": \"text\",\n            \"text\": \"Breakroom counter check before the 9 AM client meeting.\",\n        },\n    ],\n    questions={\n        \"has_spill\": {\n            \"type\": \"noul\",\n            \"instructions\": \"Is there an uncleaned liquid spill on the counter?\",\n        },\n        \"next_action\": {\n            \"type\": \"choice\",\n            \"instructions\": \"Which cleanup action fits the scene?\",\n            \"criteria\": {\n                \"wipe_with_cloth\": \"Small counter spill with a cloth or towel already nearby.\",\n                \"dispatch_janitorial\": \"Large floor hazard, broken glass, or active leak.\",\n                \"ready_for_meeting\": \"Counter is clean and ready.\",\n            },\n        },\n        \"severity\": {\n            \"type\": \"score\",\n            \"instructions\": \"Rate the severity of the counter mess.\",\n            \"criteria\": [\n                \"Clean and ready.\",\n                \"Minor localized spill.\",\n                \"Major spill or safety hazard.\",\n            ],\n        },\n    },\n)\n```\n\n![Gemini detected a spill with a next_action wipe_with_cloth](https://storage.googleapis.com/gweb-uniblog-publish-prod/images/decisions-hero-hud_l8rnHOK.width-1200.format-webp.webp)\n\n## How teams are building with the Decisions API\n\nTeams across Google are already using the Decisions API as a low-latency control plane, shipping features simply by defining options rather than training custom classifiers or waiting on generative calls:\n\n* **Dynamic model routing in Gemini Notebook:** Gemini Notebook uses the Decisions API as a real-time router to instantly direct incoming queries to the optimal model tier and thinking level for each request. The Decisions API classifies intent in milliseconds to serve everyday queries with up to 40% lower latency while reserving deep reasoning models for complex tasks.\n* **Rapid design iteration in Stitch:** The new [rapid canvas experiment in Stitch](https://stitch.withgoogle.com/rapid) uses the Decisions API to generate playable wireframes of a product flow in seconds and to apply edits made by voice or tap almost instantly. When the flow feels right, one click hands the screens off to the full Stitch experience for deeper design polish.\n* **Emoji selection in CC:** CC from Google Labs uses the Decisions API to pick the right emoji reaction from a palette of more than 200 options in a fraction of a second, so reactions appear instantly without adding latency.\n* **Safety layer for MCP tools in Search**: Google Search uses the Decision API to detect adversarial behavior and content against adversarial evals with high efficacy within the latency envelope.\n\nStitch Rapid uses the Decisions API to design an entire product flow in seconds (1x speed).\n\n## Start building today\n\nGemini Decision 1 is priced at $0.10 per 1M input tokens and $0 for output tokens, with an API no-cost tier you can use in [Google AI Studio](https://aistudio.google.com/apps/bundled/gemini-decisions-api-playground?fullscreenApplet=true) for prototyping. Your shared `input` is billed once per request no matter how many questions you evaluate (each question adds only its own instruction and criteria tokens). There are no output-token charges, variable thinking-token bills, or separate audio transcription and OCR costs.\n\nYou can start building today by grabbing an API key in [Google AI Studio](https://aistudio.google.com/api-keys), trying our [Doorstep Parcels](https://aistudio.google.com/apps/bundled/doorstep-parcels-qa?fullscreenApplet=true), [Speed Sketch](https://aistudio.google.com/apps/bundled/speed-sketch?fullscreenApplet=true), and [Find the Zoo Keeper](https://aistudio.google.com/apps/bundled/find-the-zoo-keeper?fullscreenApplet=true) demo apps, and following the Python, JavaScript, and REST guides in the [Decisions API documentation](https://aistudio.google.com/docs/decisions-api).\n\nEcosystem integrations are rolling out across [OpenRouter](https://openrouter.ai/google/gemini-decision-1), [LangChain](https://docs.langchain.com/oss/python/integrations/providers/google), [Vercel](https://ai-sdk.dev/providers/ai-sdk-providers/google), [LiteLLM](https://docs.litellm.ai/docs/providers/gemini), [Pydantic AI](https://pydantic.dev/docs/ai/models/google/), [Pipecat](https://docs.pipecat.ai/api-reference/server/classifiers/google), [LiveKit](https://docs.livekit.io/agents/integrations/google/), and [OpenCode](https://opencode.ai/) alongside the `google-genai` SDKs, with support [coming soon](https://forms.gle/NFt1W6pL1gCY9FGM8) to Gemini in Google Cloud.\n",
+    "media": [
+      {
+        "id": "media_decisions_architecture",
+        "type": "image",
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/decisions-architecture_f0NFXU9.width-1200.format-webp.webp",
+        "alt": "Comparison of Gemini Decision and other APIs against various benchmarks"
+      },
+      {
+        "id": "media_decisions_benchmarks",
+        "type": "image",
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-decision__benchmarks__tab.width-1200.format-webp_3LrengT.webp",
+        "alt": "Comparison of the Decisions API and other APIs to benchmark"
+      },
+      {
+        "id": "media_decisions_spill_hud",
+        "type": "image",
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/decisions-hero-hud_l8rnHOK.width-1200.format-webp.webp",
+        "alt": "Gemini detected a spill with a next_action wipe_with_cloth"
+      },
+      {
+        "id": "media_stitch_rapid_video",
+        "type": "video",
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/rapid-generate-1x-speed_resized.mp4",
+        "alt": "Stitch Rapid using the Decisions API to create the installation flow of a video doorbell"
+      },
+      {
+        "id": "media_tts_umbriel",
+        "type": "audio",
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/media/tts_audio_86902_umbriel_2026_11_11_18_16_33.mp3"
+      },
+      {
+        "id": "media_tts_gacrux",
+        "type": "audio",
+        "url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/media/tts_audio_86902_gacrux_2026_11_11_18_16_31.mp3"
+      }
+    ]
+  },
+  "body_md": "每百万输入 token 0.10 美元，输出 token 一律不收钱，端到端延迟 150 到 250 毫秒，一次请求最多问 1000 个问题。\n\n2026 年 11 月 11 日，Google 发布 Gemini Decisions API，背后是一款新模型 Gemini Decision 1（模型名 gemini-decision-1），通过 Google AI Studio 里的 Gemini API 提供。发布文章的作者是 Google DeepMind 产品经理 Min Choi 和首席科学家 Felix Yu。Sundar Pichai 也在 X 上发了这条消息，地址是 https://x.com/sundarpichai/status/2120581155078729728 。\n\n## 专门回答答案范围已经定好的问题\n\n这个新接口处理的是封闭式决策：工具选哪个、内容合不合规、请求该路由给哪个模型、一段上下文该打几分。答案就在几个选项里，用不着让模型写一段话。\n\n用法是传入一份多模态输入，文本、图片、音频、视频和 PDF 都可以，上限 256K token，再附上最多 1000 个彼此独立的问题。\n\nGemini Decision 1 不逐个 token 地生成答案文字。它在一次前向计算里直接给候选选项打分，返回每个选项的概率和一个置信度。打个比方，普通生成模型像在答卷上写作文，它更像在答题卡上涂选项，答题卡上有几道题，一次就全部涂完。\n\n## 基准成绩和延迟\n\nGoogle 称，在一组覆盖智能体路由、推理、排序和多模态理解的基准上，Gemini Decision 1 整体领先，校准误差也是最低的。校准误差低，意思是它报出的概率和实际对错更吻合，说 90% 把握的时候，大致真有九成会对。这组成绩来自 Google 自己的发布文章。\n\n省掉逐 token 解码之后，模型计算部分的中位延迟是 50 到 100 毫秒，端到端 150 到 250 毫秒。这组数字对应的是多模态输入、上下文在 16K token 以内的情况，而且每次请求从 1 个问题加到 100 个问题，延迟几乎不变。\n\n因为输出 token 不计费，在同一套基准上，用 Decisions API 跑 Gemini Decision 1，总成本比用 Interactions API 跑 Gemini 3.5 Flash-Lite 便宜将近 5 倍。\n\n## 一次请求里混用三种题型\n\nGemini Decision 1 建立在 Gemini 原生多模态架构上，文本、图片、音频、视频和 PDF 都能在一次前向计算里直接处理。不同模态可以放进同一份共享输入，比如一段通话录音配上账户元数据，或者一份扫描版理赔 PDF 配上几张损坏照片。图片和视频的输入分辨率可以调，用来在画面细节和 token 成本之间取舍。\n\n同一份输入可以同时挂多个问题，是非题、多选题和评分题混在一起问。每个答案都带一个 0 到 1 之间的置信度，代码可以据此把拿不准的情况转给备用方案或人工审核。三种题型分别是：\n\n- **noul（是/否）**：估计某个是非条件成立的概率，可以另外写明判为真和判为假的描述标准。\n- **choice（多选）**：从 2 到 255 个选项里选出一个，返回胜出项和所有候选项的归一化概率。\n- **score（有序评分）**：按一个从 0 开始的有序评分表给输入打分，返回连续的加权分数和每一档的概率。\n\n`input` 字段和 Interactions API 用的是同一种 Content 块格式。官方示例检查一张茶水间台面的照片，再加一句文字备注：9 点客户会议前的台面检查。同一个请求里问了三个问题：has_spill 问台面上有没有没擦掉的液体（是非题）；next_action 问该怎么清理，三个选项分别是用手边的布擦掉、派保洁处理大面积隐患或碎玻璃或漏水、台面已经可以开会；severity 给台面的脏乱程度打分，从干净、局部小洒漏到大面积洒漏或安全隐患共三档。\n\n完整的 Python 示例代码见下方原文区，调用的是 `client.decisions.create`，`api_version` 设为 `v1beta`。\n\n文中配图展示了这次请求的结果：Gemini 检测到台面上有洒漏，next_action 给出的是 wipe_with_cloth，也就是用布擦掉。\n\n## Google 内部已经拿它做什么\n\n按 Google 的说法，内部好几个团队已经把 Decisions API 当作低延迟的控制层来用。上线一个功能，只需要把选项定义好，不用训练定制分类器，也不用等生成式调用慢慢返回。文中举了四个例子：\n\n- **Gemini Notebook 的动态模型路由**：它用 Decisions API 做实时路由，把每个请求分配到合适的模型档位和思考级别。意图分类在毫秒级完成，日常查询的延迟最多降低 40%，深度推理模型留给复杂任务。\n- **Stitch 的快速设计迭代**：Stitch 新的 rapid canvas 实验（https://stitch.withgoogle.com/rapid ）用它在几秒内生成可以点着玩的产品流程线框图，用语音或点按做的修改几乎立刻生效。流程顺了以后，一键把这些页面交给完整版 Stitch 继续精修。\n- **CC 的表情选择**：Google Labs 的 CC 用它在一瞬间从 200 多个表情里挑出合适的回应，表情反应即时出现，不额外增加延迟。\n- **Search 里 MCP 工具的安全层**：Google 搜索用它检测对抗性行为和内容。Google 称在对抗性评测中效果很好，同时满足延迟要求。\n\n原文在这里附了一段 Stitch Rapid 的演示视频，说明文字是用 Decisions API 在几秒内设计出一整套产品流程，1 倍速播放；替代文本写的是用它为一款可视门铃生成安装流程。本站没有观看这段视频，只按原文位置附上，不描述其中的画面。\n\n## 价格怎么算\n\nGemini Decision 1 的价格是每百万输入 token 0.10 美元，输出 0 美元。Google AI Studio 里有一个免费层，可以用来做原型。\n\n共享的 `input` 每次请求只计一次费，问多少个问题都一样，每个问题只额外计入它自己的说明和判断标准占用的 token。没有输出 token 费用，没有忽多忽少的思考 token 账单，音频转写和 OCR 也不单独收费。\n\n上手的路径是：在 Google AI Studio 申请 API key，试一试 Doorstep Parcels、Speed Sketch 和 Find the Zoo Keeper 三个演示应用，再按 Decisions API 文档里的 Python、JavaScript 和 REST 指南接入。文档地址是 https://aistudio.google.com/docs/decisions-api 。\n\n生态集成正在 OpenRouter、LangChain、Vercel、LiteLLM、Pydantic AI、Pipecat、LiveKit 和 OpenCode 上陆续上线，`google-genai` SDK 同步支持。Google Cloud 上的 Gemini 支持还在路上，原文写的是即将推出。\n\n如果手上的智能体流程里塞满了走哪条分支、这条内容合不合规、该交给哪个模型这类判断，而且现在都靠生成式调用来回答，可以挑其中一段换成 Decisions API 试一下：先用它返回的置信度划一条线，低于这条线的交给人工或更强的模型，再对比延迟和账单。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_decisions_architecture",
+      "placement": "after_paragraph",
+      "after_md": "Gemini Decision 1 不逐个 token 地生成答案文字。它在一次前向计算里直接给候选选项打分，返回每个选项的概率和一个置信度。打个比方，普通生成模型像在答卷上写作文，它更像在答题卡上涂选项，答题卡上有几道题，一次就全部涂完。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_decisions_benchmarks",
+      "placement": "after_paragraph",
+      "after_md": "Google 称，在一组覆盖智能体路由、推理、排序和多模态理解的基准上，Gemini Decision 1 整体领先，校准误差也是最低的。校准误差低，意思是它报出的概率和实际对错更吻合，说 90% 把握的时候，大致真有九成会对。这组成绩来自 Google 自己的发布文章。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_decisions_spill_hud",
+      "placement": "after_paragraph",
+      "after_md": "文中配图展示了这次请求的结果：Gemini 检测到台面上有洒漏，next_action 给出的是 wipe_with_cloth，也就是用布擦掉。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_stitch_rapid_video",
+      "placement": "after_paragraph",
+      "after_md": "原文在这里附了一段 Stitch Rapid 的演示视频，说明文字是用 Decisions API 在几秒内设计出一整套产品流程，1 倍速播放；替代文本写的是用它为一款可视门铃生成安装流程。本站没有观看这段视频，只按原文位置附上，不描述其中的画面。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_tts_umbriel",
+      "placement": "after_body",
+      "placement_note": "原文附带媒体；这是页面自动生成的文章朗读音频，不是正文演示。未核验其与具体段落的对应关系。",
+      "evidence": "source_metadata_only"
+    },
+    {
+      "media_id": "media_tts_gacrux",
+      "placement": "after_body",
+      "placement_note": "原文附带媒体；这是页面自动生成的文章朗读音频，不是正文演示。未核验其与具体段落的对应关系。",
+      "evidence": "source_metadata_only"
+    }
+  ]
+}

@@ -208,6 +208,10 @@ class BuildRegression(unittest.TestCase):
                     self.assertTrue(doc.select("img", src=build.local_media_url(media["url"]), **{"data-original-src": media["url"]}))
                 if media["type"] in ("video", "x_video"):
                     video = doc.select("video", src=media["url"])[0]
+                    if not media.get("poster"):
+                        # SCHEMA: poster is optional; never invent one.
+                        self.assertIsNone(video.get("poster"))
+                        continue
                     self.assertEqual(video.get("poster"), build.local_media_url(media["poster"]))
                     self.assertEqual(video.get("data-original-poster"), media["poster"])
 

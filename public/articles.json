@@ -1,5 +1,50 @@
 [
   {
+    "id": "dylan-patel-persistent-agents-spend",
+    "date": "2026-11-11",
+    "title": "SemiAnalysis 的 AI 开销里，常驻智能体已占 45%：Dylan Patel 主力用 Perplexity Computer，直言 Claude Tags 不好用",
+    "dek": "Dylan Patel 晒出内部用量图：从 2 月到 11 月 8 日，Perplexity Computer 加 Claude Tags 这类常驻智能体从 0 涨到一周 AI 开销的 45%。他认为 Perplexity 的模型多半来自 Anthropic，胜在产品和响应速度。",
+    "url": "/a/dylan-patel-persistent-agents-spend",
+    "source_url": "https://x.com/dylan522p/status/2120617704101155270",
+    "tags": [
+      "agents",
+      "Perplexity",
+      "Claude",
+      "SemiAnalysis",
+      "AI spend"
+    ]
+  },
+  {
+    "id": "gemini-decisions-api",
+    "date": "2026-11-11",
+    "title": "Google 推出 Gemini Decisions API：一次请求给 1000 个封闭式问题打分，输出 token 不收费",
+    "dek": "新模型 Gemini Decision 1 不逐字生成答案，直接在一次前向计算里给候选项打分，返回概率和置信度。每百万输入 token 0.10 美元，端到端延迟 150 到 250 毫秒，Google 内部已用于模型路由、Stitch 设计和搜索安全层。",
+    "url": "/a/gemini-decisions-api",
+    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    "tags": [
+      "Gemini",
+      "Google",
+      "API",
+      "agents",
+      "pricing"
+    ]
+  },
+  {
+    "id": "openai-cot-monitorability-lifecycle",
+    "date": "2026-11-10",
+    "title": "OpenAI 对齐团队：模型越强，越难通过思维链盯住它",
+    "dek": "OpenAI 拆解了预训练、架构、强化学习和模型生成数据四个环节：困惑度越低，不写思维链的推理能力越强；强化学习会推高思维链可控性，这种可控性还能经 SFT 从老师传给学生。团队也承认，可控性本身是个有噪声的代理指标。",
+    "url": "/a/openai-cot-monitorability-lifecycle",
+    "source_url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/",
+    "tags": [
+      "OpenAI",
+      "alignment",
+      "chain-of-thought",
+      "safety",
+      "GPT-6"
+    ]
+  },
+  {
     "id": "alphaproof-code-signal",
     "date": "2026-11-10",
     "title": "他们用四周时间，给 Signal 的核心加密代码做了机器检查的形式化证明",

@@ -1,0 +1,56 @@
+{
+  "id": "dylan-patel-persistent-agents-spend",
+  "date": "2026-11-11",
+  "published_at": "2026-11-11T20:40:34+00:00",
+  "ingested_at": "2026-11-12T08:45:00+08:00",
+  "source": {
+    "type": "x_post",
+    "url": "https://x.com/dylan522p/status/2120617704101155270",
+    "author": "Dylan Patel",
+    "handle": "dylan522p",
+    "title_en": "Persistent Agents are the next unlock of AI usage"
+  },
+  "title": "SemiAnalysis 的 AI 开销里，常驻智能体已占 45%：Dylan Patel 主力用 Perplexity Computer，直言 Claude Tags 不好用",
+  "dek": "Dylan Patel 晒出内部用量图：从 2 月到 11 月 8 日，Perplexity Computer 加 Claude Tags 这类常驻智能体从 0 涨到一周 AI 开销的 45%。他认为 Perplexity 的模型多半来自 Anthropic，胜在产品和响应速度。",
+  "tags": [
+    "agents",
+    "Perplexity",
+    "Claude",
+    "SemiAnalysis",
+    "AI spend"
+  ],
+  "original": {
+    "lang": "en",
+    "title": "Persistent Agents are the next unlock of AI usage",
+    "text_md": "Persistent Agents are the next unlock of AI usage\nOur spend on AI is now 45% persistent agents\nUnfortunately for Anthropic, Claude Tags sucks\nOpenAI's Slack agent is even worse\nWe primarily use Perplexity Computer, which uses a lot of different models\nPerplexity's Harness mogs\n\n[Image attached]\n\n**Thread replies by @dylan522p (Nov 11, 2026):**\n\n> The funny thing is that Perplexity is primarily using Anthropic models for our use cases, but Anthropic sucks at product, and they're not really receptive to any feedback on their product\n> Same with OpenAI\n\nhttps://x.com/dylan522p/status/2120618192355852359\n\n> What I love about Perplexity is that they're very fast on any feature request. Even though they did not invent the category, they are fast followers and implement any change that's needed in less than 24 hours.\n> They even got the name from us back in February. [Image attached]\n\nhttps://x.com/dylan522p/status/2120618225398579613\n\n**Selected replies in the conversation:**\n\n@daniel_priscu: \"45% persistent already?? curious what the other 55 is\"\n@dylan522p: \"Claude code\" (https://x.com/dylan522p/status/2120652954571321620)\n\n@jnptl (replying to the Perplexity post): \"but do they have usage? I personally don;t know that many people who use perplexity.\"\n@dylan522p: \"We spend $7m run rate\" (https://x.com/dylan522p/status/2120652689965273221)\n\n@lukeigel: \"Have you tried devin’s yet\"\n@dylan522p: \"Yes, it sucks\" (https://x.com/dylan522p/status/2120652754939191584)\n\n@noahzweben: \"👋Real life human PM for Claude Tag - feel free to lmk what’s not working or DM me! We’d love to improve the product and we’ve shipped a ton of improvements over the last month\"\n@dylan522p: \"Join the slack will rant at u\" (https://x.com/dylan522p/status/2120652827395842542)\n",
+    "media": [
+      {
+        "id": "media_spend_chart",
+        "type": "image",
+        "url": "https://pbs.twimg.com/media/HW3ykDjbEAA9Gac.jpg",
+        "alt": "原帖配图"
+      },
+      {
+        "id": "media_claude_computer_screenshot",
+        "type": "image",
+        "url": "https://pbs.twimg.com/media/HW3zCXKacAAaP-o.jpg",
+        "alt": "原帖配图"
+      }
+    ]
+  },
+  "body_md": "截至 2026 年 11 月 8 日的一周，SemiAnalysis 的 AI 开销里有 45% 花在常驻智能体（persistent agents）上。按他们的统计，今年 2 月这个比例还是 0。\n\nDylan Patel 在 X 上发帖说，常驻智能体是 AI 用量的下一个突破口。\n\n## 他们主要用 Perplexity Computer\n\n帖子里点名了三家产品。他说，Anthropic 不走运，Claude Tags 很烂；OpenAI 的 Slack 智能体更差。SemiAnalysis 主要用的是 Perplexity Computer，它会调用很多不同的模型。他的原话是 Perplexity 的 harness（智能体运行框架）mogs，网络俚语，意思是完胜。\n\n配图是 SemiAnalysis 自己的图表，标题是常驻智能体（Perplexity Computer 加 Claude Tags）从 0% 涨到他们 AI 开销的 45%。统计口径是按服务商拆分的每日 AI 成本占比，取 7 天滑动平均，时间从 2026 年 2 月 1 日到 11 月 8 日，分成五块：Perplexity Computer、Claude Tags、xAI、OpenAI（API 加 ChatGPT 和 Codex）、Claude（企业版加 API，不含 Tags）。图上的标注写着，截至 11 月 8 日的一周，常驻智能体占开销的 45%。\n\n从图上看，2 月到 6 月，开销几乎全部是 Claude；7 月以后 OpenAI 的份额明显扩大；Claude Tags 从 8 月开始出现，占比一直不大；Perplexity Computer 的份额在 10 月下旬到 11 月扩张得最快。图下的来源说明写着：数据来自 SemiAnalysis 内部 AI 用量看板（Afzal Ahmad）；9 月 9 日之前的服务商拆分是从看板图表上读出来的，9 月 9 日到 11 月 8 日以及全部 Claude Tags 数据来自每日用量报告 CSV；11 月 9 日以后的数据没有计入，因为 Perplexity 的账单会延迟一到两天。\n\n## 用的是 Anthropic 的模型，选的是 Perplexity 的产品\n\n他在后续回复里补充，好笑的是，在他们的用例里，Perplexity 主要用的就是 Anthropic 的模型。问题出在产品上：他认为 Anthropic 做产品很差，对产品反馈也不太接受，OpenAI 也一样。\n\n他喜欢 Perplexity 的一点，是对功能需求的响应很快。这个品类不是 Perplexity 发明的，但他们是快速跟进者，任何需要的改动都能在 24 小时内做完。他还说，Perplexity 连这个名字都是今年 2 月从 SemiAnalysis 那里拿去的。\n\n配图是一张浏览器截图，地址栏显示 newsletter.semianalysis.com/p/claude-code-is-the-… ，截的是其中 What is Claude Code? 一节。那一段写道，把 Claude Code 只看成写代码的工具可能不对，更应该把它看作 Claude Computer：拿到电脑的完全访问权之后，Claude 能理解环境、制定计划，并在用户指引下一步步完成计划。\n\n## 评论区里的几句追问\n\n有人问，常驻智能体已经占 45% 了，剩下的 55% 是什么。他回了两个词：Claude Code。\n\n有人质疑 Perplexity 到底有没有用户，说自己身边用 Perplexity 的人不多。他回了一句 We spend $7m run rate，意思是按当前速度折算，开销规模是 700 万美元。他没有说明这个数字指的是在 Perplexity 上的花费，还是 SemiAnalysis 全部的 AI 开销。\n\n有人问他试过 Devin 的产品没有，他回答试过，也很烂。\n\n自称 Claude Tag 产品经理的 Noah Zweben 也来回复，请他说说哪里不好用，或者私信沟通，并说过去一个月已经上线了大量改进。Dylan Patel 回他：加入 Slack，到时候冲你吐槽。\n\n这些都是 Dylan Patel 基于 SemiAnalysis 内部使用给出的个人评价，没有附具体的评测方法。对正在评估常驻智能体的团队，这条帖子能提供的是一家重度用户的真实开销结构，以及它看重什么：harness 能不能调度多家模型，厂商对功能需求响应得有多快。拿自己团队的账单按服务商和产品拆一遍，能看清钱实际流向了哪类智能体。\n",
+  "rewrite_media": [
+    {
+      "media_id": "media_spend_chart",
+      "placement": "after_paragraph",
+      "after_md": "配图是 SemiAnalysis 自己的图表，标题是常驻智能体（Perplexity Computer 加 Claude Tags）从 0% 涨到他们 AI 开销的 45%。统计口径是按服务商拆分的每日 AI 成本占比，取 7 天滑动平均，时间从 2026 年 2 月 1 日到 11 月 8 日，分成五块：Perplexity Computer、Claude Tags、xAI、OpenAI（API 加 ChatGPT 和 Codex）、Claude（企业版加 API，不含 Tags）。图上的标注写着，截至 11 月 8 日的一周，常驻智能体占开销的 45%。",
+      "evidence": "source_position_verified"
+    },
+    {
+      "media_id": "media_claude_computer_screenshot",
+      "placement": "after_paragraph",
+      "after_md": "配图是一张浏览器截图，地址栏显示 newsletter.semianalysis.com/p/claude-code-is-the-… ，截的是其中 What is Claude Code? 一节。那一段写道，把 Claude Code 只看成写代码的工具可能不对，更应该把它看作 Claude Computer：拿到电脑的完全访问权之后，Claude 能理解环境、制定计划，并在用户指引下一步步完成计划。",
+      "evidence": "source_position_verified"
+    }
+  ]
+}
